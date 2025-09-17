@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NibbleNow</title>
+    <title>Register - NibbleNow</title>
     <link href="output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,6 +21,17 @@
         <h1 class="text-4xl font-bold mb-3">NibbleNow</h1>
         <h2 class="mb-[50px]">Food Delivery Done Right</h2>
 
+          <h2 class="font-bold mb-3">Requirements (useful for writing test cases)</h2>
+          <ul class="mb-[50px] list-disc">
+            <li>Username should be between 5 and 25 characters</li>
+            <li>
+              Password should be between 5 and 25 characters
+            </li>
+            <li>
+              Password should contain one uppercase character
+            </li>
+          </ul>
+
         <input
           type="text"
           placeholder="Username"
@@ -32,16 +43,13 @@
           class="rounded-lg w-[300px] text-center p-2 border-2 mb-5"
         />
 
-        <p class="mb-10 text-red-400">Status (will display any login errors)</p>
+        <p class="mb-10 text-red-400">Status (will display any registration errors)</p>
 
         <a
           href=""
           class="text-md rounded-lg mb-6 pl-8 pr-8 pt-2 pb-2 border-2 bg-white hover:bg-neutral-100 ease-linear duration-100"
-          >Login</a
+          >Register</a
         >
-
-        Don't have an account?
-        <a href="register.html" class="underline">Register here</a>
       </div>
     </div>
   </body>

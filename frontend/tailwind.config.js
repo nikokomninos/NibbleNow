@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+      fontFamily: {
+        notosans: ["Noto Sans"] 
+      }
     },
   },
   plugins: [],
