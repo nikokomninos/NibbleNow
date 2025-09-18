@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="script.js"></script>
   </head>
 
   <body class="font-notosans bg-[#FDFDFF] text-[#352F36]">
@@ -32,12 +33,12 @@
           class="rounded-lg w-[300px] text-center p-2 border-2 mb-5"
         />
 
-        <p class="mb-10 text-red-400">Status (will display any login errors)</p>
+        <p id="status" class="mb-10 text-red-400">Status (will display any login errors)</p>
 
-        <a
-          href=""
+        <button
+          onclick="test()"
           class="text-md rounded-lg mb-6 pl-8 pr-8 pt-2 pb-2 border-2 bg-white hover:bg-neutral-100 ease-linear duration-100"
-          >Login</a
+          >Login</button
         >
 
         Don't have an account?
