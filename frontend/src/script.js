@@ -1,5 +1,5 @@
 const test = () => {
-  fetch("http://localhost:8000/api")
+  fetch("http://localhost:8000/api/getTest")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("status").innerText = data;
