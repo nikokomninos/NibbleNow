@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NibbleNow</title>
-    <link href="output.css" rel="stylesheet" />
+    <link href="tailwind/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,11 +23,13 @@
         <h2 class="mb-[50px]">Food Delivery Done Right</h2>
 
         <input
+          id="username"
           type="text"
           placeholder="Username"
           class="rounded-lg w-[300px] text-center p-2 border-2 mb-4"
         />
         <input
+          id="password"
           type="password"
           placeholder="Password"
           class="rounded-lg w-[300px] text-center p-2 border-2 mb-5"
@@ -36,7 +38,7 @@
         <p id="status" class="mb-10 text-red-400">Status (will display any login errors)</p>
 
         <button
-          onclick="test()"
+          onclick="login()"
           class="text-md rounded-lg mb-6 pl-8 pr-8 pt-2 pb-2 border-2 bg-white hover:bg-neutral-100 ease-linear duration-100"
           >Login</button
         >

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register - NibbleNow</title>
-    <link href="output.css" rel="stylesheet" />
+    <link href="tailwind/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,16 +21,15 @@
         <h1 class="text-4xl font-bold mb-3">NibbleNow</h1>
         <h2 class="mb-[50px]">Food Delivery Done Right</h2>
 
-          <h2 class="font-bold mb-3">Requirements (useful for writing test cases)</h2>
-          <ul class="mb-[50px] list-disc">
-            <li>Username should be between 5 and 25 characters</li>
-            <li>
-              Password should be between 5 and 25 characters
-            </li>
-            <li>
-              Password should contain one uppercase character
-            </li>
-          </ul>
+        <h2 class="font-bold mb-3">
+          Requirements
+        </h2>
+        <ul class="mb-[50px] list-disc">
+          <li>Username should be between 5 and 25 characters</li>
+          <li>Password should be between 5 and 25 characters</li>
+          <li>Password should contain one uppercase character</li>
+          <li>Username and password cannot contain spaces<br> or special characters</li>
+        </ul>
 
         <input
           type="text"
@@ -43,7 +42,19 @@
           class="rounded-lg w-[300px] text-center p-2 border-2 mb-5"
         />
 
-        <p class="mb-10 text-red-400">Status (will display any registration errors)</p>
+        <select
+          name="roles"
+          class="rounded-lg w-[300px] text-center p-2 border-2 mb-4 bg-[#FDFDFF]"
+        >
+          <option value="default">-- Select Role --</option>
+          <option value="customer">Customer</option>
+          <option value="owner">Restaurant Owner</option>
+          <option value="driver">Delivery Driver</option>
+        </select>
+
+        <p class="mb-10 text-red-400">
+          Status (will display any registration errors)
+        </p>
 
         <a
           href=""

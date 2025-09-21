@@ -1,5 +1,6 @@
 package com.nibblenow.app;
 
+import com.nibblenow.app.handlers.LoginHandler;
 import com.nibblenow.app.handlers.TestGetHandler;
 import com.nibblenow.app.handlers.TestPostHandler;
 
@@ -18,10 +19,13 @@ public class App {
 
             server.createContext("/api/getTest", new TestGetHandler());
             server.createContext("/api/postTest", new TestPostHandler());
+            server.createContext("/api/login", new LoginHandler());
 
             server.setExecutor(null);
             server.start();
             System.out.println("Sever started on port " + PORT);
+
+            Database.USERS.put("testuser", "TestPass");
         } catch (IOException e) {
             System.err.println("Error starting server: " + e.getMessage());
         }
