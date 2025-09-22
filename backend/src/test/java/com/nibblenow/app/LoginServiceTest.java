@@ -45,7 +45,7 @@ class LoginServiceTest
   public void userExistsValidPassword()
   {
     User testUser = new User("johnsmith", "JohnPassword", "Customer");
-    Database.USERS.add(testUser);
+    db.USERS.add(testUser);
 
     result = testUser.equals(service.login("johnsmith", "JohnPassword"));
     assertTrue(result);
