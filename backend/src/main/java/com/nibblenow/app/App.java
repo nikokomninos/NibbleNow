@@ -24,8 +24,6 @@ public class App {
             server.setExecutor(null);
             server.start();
             System.out.println("Sever started on port " + PORT);
-
-            Database.USERS.put("testuser", "TestPass");
         } catch (IOException e) {
             System.err.println("Error starting server: " + e.getMessage());
         }
