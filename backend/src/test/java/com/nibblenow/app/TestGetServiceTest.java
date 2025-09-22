@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import com.nibblenow.app.services.TestGetService;
 
-class TestGetServiceTest {
-
+class TestGetServiceTest
+{
   private TestGetService s;
   private String result; 
 
