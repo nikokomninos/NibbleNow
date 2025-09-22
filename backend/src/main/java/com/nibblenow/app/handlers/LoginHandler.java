@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import com.nibblenow.app.User;
 import com.nibblenow.app.services.LoginService;
 
 public class LoginHandler implements HttpHandler {
@@ -22,7 +23,10 @@ public class LoginHandler implements HttpHandler {
     String username = parts[0];
     String password = parts[1];
 
+    User result = service.login(username, password);
     String response = "";
+    if (result.equals(null)) response = "Failure";
+    else response = "Success";
 
     exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
     exchange.sendResponseHeaders(200, response.length());
