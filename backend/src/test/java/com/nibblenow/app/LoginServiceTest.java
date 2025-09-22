@@ -36,7 +36,6 @@ class LoginServiceTest {
 
   @Test
   public void userExistsValidPassword() {
-    this.db.USERS.put("johnsmith", "JohnPassword");
   }
 
   @Test

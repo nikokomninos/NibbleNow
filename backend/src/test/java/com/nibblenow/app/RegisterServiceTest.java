@@ -31,5 +31,15 @@ class RegisterServiceTest {
 
   @Test
   public void testStub() {
+    assertEquals(null,service.register("","",""));
+
+  }
+
+  @Test
+  public void testUserCreateAccountValidMinUsername(){
+
+    User expectedUser = new User("Johns", "JohnPassword", "Customer");
+    assertEquals(expectedUser, service.register("Johns", "JohnPassword", "Customer"));
+
   }
 }
