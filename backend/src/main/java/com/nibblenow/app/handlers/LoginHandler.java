@@ -22,7 +22,7 @@ public class LoginHandler implements HttpHandler {
     String username = parts[0];
     String password = parts[1];
 
-    String response = service.login(username, password);
+    String response = "";
 
     exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
     exchange.sendResponseHeaders(200, response.length());
