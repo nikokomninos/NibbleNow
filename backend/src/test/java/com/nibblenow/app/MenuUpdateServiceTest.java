@@ -1,3 +1,13 @@
+/**
+ * MenuUpdateServiceTest:
+ * 
+ * A JUnit test suite to test the MenuUpdateService class,
+ * which contains methods related to updating a restaurant's menu
+ * 
+ * @author Nikolaos Komninos
+ */
+
+
 package com.nibblenow.app;
 
 import static org.mockito.Mockito.*;
@@ -13,7 +23,7 @@ import com.nibblenow.app.services.MenuUpdateService;
 class MenuUpdateServiceTest {
 
   private MenuUpdateService service;
-  private String result;
+  private boolean result;
   private Database db;
 
   @BeforeEach
@@ -25,11 +35,25 @@ class MenuUpdateServiceTest {
   @AfterEach
   public void tearDown() {
     this.service = null;
-    this.result = null;
+    this.result = false;
     this.db = null;
   }
 
+  /* TESTS FOR addItem() */
+
   @Test
-  public void testStub() {
+  public void addItemTestStub() {
+    result = service.addItem();
+    assertEquals(false, result);
   }
+
+  @Test
+  public void addItemMinNameLength() {
+    result = service.addItem();
+    assertEquals(true, result);
+  }
+
+  /* TESTS FOR removeItem() */
+
+  /* TESTS FOR editItem() */
 }

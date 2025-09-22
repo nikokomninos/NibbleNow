@@ -2,6 +2,7 @@ package com.nibblenow.app.services;
 
 import com.nibblenow.app.User;
 import com.nibblenow.app.Database;
+import com.nibblenow.app.User;
 
 /*
  * LoginService:
