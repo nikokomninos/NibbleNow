@@ -12,6 +12,7 @@ public class Restaurant {
   public Restaurant(String name, String type) {
     this.name = name;
     this.type = type;
+    this.menu = new ArrayList<MenuItem>();
   }
 
   public String getName() {

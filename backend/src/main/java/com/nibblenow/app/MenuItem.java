@@ -13,7 +13,22 @@ public class MenuItem {
     return this.name;
   }
 
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public String getDescription() {
     return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public boolean equals(MenuItem other) {
+    if (other == null) { return false; }
+    if (other.getName().equals(this.name) &&
+        other.getDescription().equals(this.description)) { return true; }
+    else return false;
   }
 }
