@@ -48,4 +48,9 @@ public class User {
     }
     return(equals);
   }
+
+  public String toString()
+  {
+    return ("Username: " + this.username + "\nPassword: " + this.password + "\nRole: " + this.role);
+  }
 }
