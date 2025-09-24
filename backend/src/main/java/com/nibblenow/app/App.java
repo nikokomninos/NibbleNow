@@ -15,6 +15,14 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 
+/**
+ * App.java: 
+ * 
+ * Boostraps the API endpoints and backend server, using the
+ * HttpServer class built into the JDK
+ * 
+ * @author Nikolaos Komninos
+ */
 public class App {
 
     private static final int PORT = 8000;
@@ -36,6 +44,7 @@ public class App {
             server.start();
             System.out.println("Sever started on port " + PORT);
 
+            // Populate with sample data
             populateUserDatabase();
             populateMenu();
         } catch (IOException e) {

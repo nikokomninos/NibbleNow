@@ -8,6 +8,11 @@ import java.io.OutputStream;
 
 import com.nibblenow.app.services.TestGetService;
 
+/**
+ * TestGetHandler:
+ * 
+ * A template for GET request endpoints
+ */
 public class TestGetHandler implements HttpHandler {
   private final TestGetService service = new TestGetService();
 

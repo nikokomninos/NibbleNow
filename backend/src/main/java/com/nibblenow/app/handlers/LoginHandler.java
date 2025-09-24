@@ -10,6 +10,12 @@ import java.io.OutputStream;
 import com.nibblenow.app.User;
 import com.nibblenow.app.services.LoginService;
 
+/**
+ * LoginHandler:
+ * 
+ * An HTTP endpoint that attempts to log a user in,
+ * and returns the result 
+ */
 public class LoginHandler implements HttpHandler {
   private final LoginService service = new LoginService();
 

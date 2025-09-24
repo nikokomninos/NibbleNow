@@ -15,6 +15,12 @@ import com.nibblenow.app.Database;
 import com.nibblenow.app.MenuItem;
 import com.nibblenow.app.Restaurant;
 
+/**
+ * MenuUpdateService:
+ * 
+ * A service that handles functionality relating
+ * to updating a restaurant's menu
+ */
 public class MenuUpdateService {
 
   /**
@@ -26,7 +32,7 @@ public class MenuUpdateService {
    *  must exist in the database
    * @param itemName; must be between 5 and 25 characters long
    * @param itemDescription; must be up to 50 characters long
-   * @return the newly added MenuItem as confirmation
+   * @return the newly added MenuItem as confirmation, null otherwise
    */
   public MenuItem addItem(String restaurant, String itemName, String itemDescription) {
     ArrayList<MenuItem> menu;
@@ -98,7 +104,7 @@ public class MenuUpdateService {
    * @param itemName; original item name 
    * @param newItemName; must be between 5 and 25 characters long
    * @param newItemDescription; must be up to 50 characters long
-   * @return
+   * @return the updated MenuItem as confirmation, null otherwise
    */
   public MenuItem editItem(String restaurant, String itemName, String newItemName, String newItemDescription) {
     ArrayList<MenuItem> menu;

@@ -1,5 +1,12 @@
 package com.nibblenow.app;
 
+/**
+ * User:
+ * 
+ * An object that represents a User
+ * 
+ * @author Nikolaos Komninos, Christopher Sciortino
+ */
 public class User {
   private String username;
   private String password;

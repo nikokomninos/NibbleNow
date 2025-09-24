@@ -10,6 +10,12 @@ import java.io.OutputStream;
 import com.nibblenow.app.MenuItem;
 import com.nibblenow.app.services.MenuUpdateService;
 
+/**
+ * MenuRemoveItemHandler:
+ * 
+ * An HTTP endpoint that attempts to remove an item
+ * from a menu and returns the result 
+ */
 public class MenuRemoveItemHandler implements HttpHandler {
   private final MenuUpdateService service = new MenuUpdateService();
 

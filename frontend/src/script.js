@@ -1,3 +1,13 @@
+/**
+ * login:
+ * 
+ * Logs a user in
+ * Will redirect to dashboard page if successful
+ * Otherwise, displays error
+ * Stores username, password and role as local 
+ * storage variables
+ * 
+ */
 const login = async () => {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
@@ -19,13 +29,22 @@ const login = async () => {
     localStorage.setItem("password", data.password);
     localStorage.setItem("role", data.role);
     document.getElementById("status").className = "mb-10 text-green-400";
-    window.setTimeout(function () {
+    window.setTimeout(() => {
       window.location.href = "./dashboard.html";
     }, 1000);
   }
   else document.getElementById("status").className = "mb-10 text-red-400";
 };
 
+
+/**
+ * register:
+ * 
+ * Fetch request for registering a new user.
+ * Will redirect to login page if successful
+ * Otherwise, displays error
+ * 
+ */
 const register = async () => {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
@@ -47,13 +66,21 @@ const register = async () => {
   document.getElementById("status").innerText = data.status;
   if (document.getElementById("status").innerText == "Account created successfully") {
     document.getElementById("status").className = "mb-10 text-green-400";
-    window.setTimeout(function () {
+    window.setTimeout(() => {
       window.location.href = "./login.html";
     }, 1000);
   }
   else document.getElementById("status").className = "mb-10 text-red-400";
 };
 
+
+/**
+ * logout:
+ * 
+ * Logs a user out.
+ * Removes all variables from local storage
+ * 
+ */
 const logout = () => {
   localStorage.removeItem("username");
   localStorage.removeItem("password");
@@ -74,6 +101,12 @@ const setRestaurantButtonRole = () => {
   }
 };
 
+/**
+ * getMenuOwner:
+ * 
+ * Gets the menu of a restaurant, for the owner view of said restaurant
+ * @param {*} restaurant, the name of the restaurant
+ */
 const getMenuOwner = async (restaurant) => {
   const container = document.querySelector("#menuContainer");
   const res = await fetch("http://localhost:8000/api/getMenu", {
@@ -84,6 +117,7 @@ const getMenuOwner = async (restaurant) => {
   });
   const data = await res.json();
   console.log(data);
+  // Builds DOM elements for each item on the menu 
   data.menu.forEach((item) => {
     const name = document.createElement("h1");
     name.className = "text-lg font-semibold mb-3";
@@ -130,6 +164,13 @@ const getMenuOwner = async (restaurant) => {
   });
 };
 
+/**
+ * addMenuItem:
+ * 
+ * Adds an item to the menu
+ * Currently hardcoded to add to restaurant
+ * named '500 Degrees'
+ */
 const addMenuItem = async () => {
   let name = document.getElementById("itemName").value;
   let description = document.getElementById("itemDescription").value;
@@ -151,13 +192,20 @@ const addMenuItem = async () => {
   document.getElementById("status").innerText = data;
   if (document.getElementById("status").innerText == "Item added successfully") {
     document.getElementById("status").className = "text-green-400";
-    window.setTimeout(function () {
+    window.setTimeout(() => {
       window.location.href = "./restaurant1_owner.html";
     }, 1000);
   }
   else document.getElementById("status").className = "text-red-400";
 }
 
+/**
+ * editMenuItem:
+ * 
+ * Edits an item on the menu
+ * Currently hardcoded to edit items from restaurant
+ * named '500 Degrees'
+ */
 const editMenuItem = async () => {
   const oldName = localStorage.getItem("editItemName");
   let newName = document.getElementById("newItemName").value;
@@ -179,13 +227,20 @@ const editMenuItem = async () => {
     document.getElementById("status").className = "text-green-400";
     localStorage.removeItem("editItemName");
     localStorage.removeItem("editItemDescription");
-    window.setTimeout(function () {
+    window.setTimeout(() => {
       window.location.href = "./restaurant1_owner.html";
     }, 1000);
   }
   else document.getElementById("status").className = "text-red-400";
 }
 
+/**
+ * removeMenuItem:
+ * 
+ * Remove an item from the menu
+ * Currently hardcoded to remove items from restaurant
+ * named '500 Degrees'
+ */
 const removeMenuItem = async () => {
   const name = localStorage.getItem("removeItemName");
 
@@ -201,7 +256,7 @@ const removeMenuItem = async () => {
   if (document.getElementById("status").innerText == "Item removed successfully") {
     document.getElementById("status").className = "text-green-400";
     localStorage.removeItem("removeItemName");
-    window.setTimeout(function () {
+    window.setTimeout(() => {
       window.location.href = "./restaurant1_owner.html";
     }, 1000);
   }

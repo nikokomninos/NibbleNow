@@ -10,6 +10,12 @@ import java.io.OutputStream;
 import com.nibblenow.app.MenuItem;
 import com.nibblenow.app.services.MenuUpdateService;
 
+/**
+ * MenuEditItemHandler:
+ * 
+ * An HTTP endpoint that attempts to edit a menu item
+ * and returns the result 
+ */
 public class MenuEditItemHandler implements HttpHandler {
   private final MenuUpdateService service = new MenuUpdateService();
 

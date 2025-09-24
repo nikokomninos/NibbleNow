@@ -1,5 +1,13 @@
 package com.nibblenow.app;
 
+/**
+ * MenuItem:
+ * 
+ * An object that represents a menu item
+ * on a restaurant's menu
+ * 
+ * @author Nikolaos Komninos
+ */
 public class MenuItem {
   private String name;
   private String description;

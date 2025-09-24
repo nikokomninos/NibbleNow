@@ -2,8 +2,13 @@ package com.nibblenow.app;
 
 import java.util.ArrayList;
 
-import com.nibblenow.app.MenuItem;
-
+/**
+ * Restaurant:
+ * 
+ * An object representing a restaurant
+ * 
+ * @author Nikolaos Komninos
+ */
 public class Restaurant {
   private String name;
   private String type;

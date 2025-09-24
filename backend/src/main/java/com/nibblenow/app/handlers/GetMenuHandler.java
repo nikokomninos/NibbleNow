@@ -11,6 +11,11 @@ import java.util.ArrayList;
 import com.nibblenow.app.Database;
 import com.nibblenow.app.MenuItem;
 
+/**
+ * GetMenuHandler:
+ * 
+ * An HTTP endpoint that returns a restaurant's full menu 
+ */
 public class GetMenuHandler implements HttpHandler {
 
   @Override
@@ -20,6 +25,8 @@ public class GetMenuHandler implements HttpHandler {
     String input = new String(data).trim();
 
     ArrayList<MenuItem> menu = Database.RESTAURANTS.get(input).getMenu();
+
+    // Build array of JSON objects, where the objects represent menu items
     String response = "{ \"menu\": [";
     for (int i = 0; i < menu.size(); i++) {
       if (i != menu.size() - 1) {

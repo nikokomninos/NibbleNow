@@ -9,6 +9,11 @@ import java.io.OutputStream;
 
 import com.nibblenow.app.services.TestPostService;
 
+/**
+ * TestPostHandler:
+ * 
+ * A template for POST request endpoints
+ */
 public class TestPostHandler implements HttpHandler {
   private final TestPostService service = new TestPostService();
 

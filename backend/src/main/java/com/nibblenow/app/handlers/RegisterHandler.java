@@ -10,6 +10,12 @@ import java.io.OutputStream;
 import com.nibblenow.app.services.RegisterService;
 import com.nibblenow.app.User;
 
+/**
+ * RegisterHandler:
+ * 
+ * An HTTP endpoint that attempts to register a
+ * new user, and returns the result 
+ */
 public class RegisterHandler implements HttpHandler {
   private final RegisterService service = new RegisterService();
 
