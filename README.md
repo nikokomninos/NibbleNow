@@ -34,4 +34,4 @@ Christopher Sciortino
 
 ### Documentation
 
-For Javadoc documentation, see `docs/apidocs/allpackages-index.html`, which is included in the latest release
+For Javadoc documentation, see `docs/apidocs/allpackages-index.html`, which is also included in the latest release
