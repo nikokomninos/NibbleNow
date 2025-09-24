@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import com.nibblenow.app.MenuItem;
 import com.nibblenow.app.services.MenuUpdateService;
 
 public class MenuRemoveItemHandler implements HttpHandler {
@@ -18,12 +19,14 @@ public class MenuRemoveItemHandler implements HttpHandler {
     byte[] data = is.readAllBytes();
     String input = new String(data).trim();
 
-    //String[] parts = input.split(",");
-    //String username = parts[0];
-    //String password = parts[1];
+    String[] parts = input.split(",");
+    String itemName = parts[0];
 
-    //String response = service.login(username, password);
+    boolean result = service.removeItem("500 Degrees", itemName);
     String response = "";
+
+    if (result == false) response = "Error: Item not removed";
+    else response = "Item removed successfully"; 
 
     exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
     exchange.sendResponseHeaders(200, response.length());

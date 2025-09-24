@@ -11,56 +11,68 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="script.js"></script>
   </head>
 
   <body class="font-notosans bg-[#FDFDFF] text-[#352F36]">
     <div class="h-screen flex justify-center items-center">
-      <div
-        class="flex flex-col justify-center items-center mx-auto p-[100px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg"
-      >
-        <h1 class="text-4xl font-bold mb-3">NibbleNow</h1>
-        <h2 class="mb-[50px]">Food Delivery Done Right</h2>
-
-        <h2 class="font-bold mb-3">
-          Requirements
-        </h2>
-        <ul class="mb-[50px] list-disc">
-          <li>Username should be between 5 and 25 characters</li>
-          <li>Password should be between 5 and 25 characters</li>
-          <li>Password should contain one uppercase character</li>
-          <li>Username and password cannot contain spaces<br> or special characters</li>
-        </ul>
-
-        <input
-          type="text"
-          placeholder="Username"
-          class="rounded-lg w-[300px] text-center p-2 border-2 mb-4"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          class="rounded-lg w-[300px] text-center p-2 border-2 mb-5"
-        />
-
-        <select
-          name="roles"
-          class="rounded-lg w-[300px] text-center p-2 border-2 mb-4 bg-[#FDFDFF]"
-        >
-          <option value="default">-- Select Role --</option>
-          <option value="customer">Customer</option>
-          <option value="owner">Restaurant Owner</option>
-          <option value="driver">Delivery Driver</option>
-        </select>
-
-        <p class="mb-10 text-red-400">
-          Status (will display any registration errors)
-        </p>
-
+      <div>
         <a
-          href=""
-          class="text-md rounded-lg mb-6 pl-8 pr-8 pt-2 pb-2 border-2 bg-white hover:bg-neutral-100 ease-linear duration-100"
-          >Register</a
+          href="login.html"
+          class="flex justify-center items-center p-5 mb-10 font-semibold w-[200px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg hover:bg-gray-200 ease-linear duration-100"
         >
+          Back
+        </a>
+        <div
+          class="flex flex-col justify-center items-center mx-auto p-[100px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg"
+        >
+          <h1 class="text-4xl font-bold mb-3">NibbleNow</h1>
+          <h2 class="mb-[50px]">Food Delivery Done Right</h2>
+
+          <h2 class="font-bold mb-3">Requirements</h2>
+          <ul class="mb-[50px] list-disc">
+            <li>Username should be between 5 and 25 characters</li>
+            <li>Password should be between 5 and 25 characters</li>
+            <li>Password should contain one uppercase character</li>
+            <li>
+              Username and password cannot contain spaces<br />
+              or special characters
+            </li>
+          </ul>
+
+          <input
+            id="username"
+            type="text"
+            placeholder="Username"
+            class="rounded-lg w-[300px] text-center p-2 border-2 mb-4"
+          />
+          <input
+            id="password"
+            type="password"
+            placeholder="Password"
+            class="rounded-lg w-[300px] text-center p-2 border-2 mb-5"
+          />
+
+          <select
+            id="roles"
+            name="roles"
+            class="rounded-lg w-[300px] text-center p-2 border-2 mb-4 bg-[#FDFDFF]"
+          >
+            <option value="Default">-- Select Role --</option>
+            <option value="Customer">Customer</option>
+            <option value="Restaurant Owner">Restaurant Owner</option>
+            <option value="Delivery Driver">Delivery Driver</option>
+          </select>
+
+          <p id="status" class="mb-10">Status</p>
+
+          <button
+            onclick="register()"
+            class="text-md rounded-lg mb-6 pl-8 pr-8 pt-2 pb-2 border-2 bg-white hover:bg-neutral-100 ease-linear duration-100"
+          >
+            Register
+          </button>
+        </div>
       </div>
     </div>
   </body>

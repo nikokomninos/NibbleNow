@@ -21,7 +21,7 @@ public class LoginService
    */
   public User login(String username, String password)
   {
-    if(username.length() > 25 || password.length() > 25)
+    if(username.length() > 25 || username.length() < 5 || password.length() < 5 || password.length() > 25)
     {
       return(null);
     }

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Menu Item - NibbleNow</title>
+    <link href="tailwind/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js"></script>
+  </head>
+
+  <body
+    onload="document.getElementById('removeItem').innerText = localStorage.getItem('removeItemName')"
+    class="font-notosans bg-[#FDFDFF] text-[#352F36]"
+  >
+    <div class="h-screen flex flex-col justify-center items-center">
+      <div>
+        <a
+          href="restaurant1_owner.html"
+          class="flex justify-center items-center p-5 mb-10 font-semibold w-[200px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg hover:bg-gray-200 ease-linear duration-100"
+        >
+          Back
+        </a>
+        <div
+          class="flex flex-col justify-center items-center mx-auto p-20 w-[800px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg"
+        >
+          <h1 class="text-4xl font-bold mb-10">Remove Menu Item</h1>
+
+          <div class="flex flex-col justify-center items-center">
+            <h2 class="font-bold mb-10">
+              Are you sure you want to remove the following item?
+            </h2>
+            <h2 id="removeItem" class="text-2xl mb-10"></h2>
+          </div>
+
+          <div class="flex flex-row mb-5">
+            <button
+              id="removeButton"
+              onclick="removeMenuItem()"
+              class="rounded-xl text-xl text-white bg-red-400 p-4 hover:bg-red-700 hover:text-neutral-200 mb-5 ease-linear duration-100"
+            >
+              Remove
+            </button>
+          </div>
+
+          <p id="status">
+            Status
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

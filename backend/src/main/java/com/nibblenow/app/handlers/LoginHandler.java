@@ -23,12 +23,22 @@ public class LoginHandler implements HttpHandler {
     String username = parts[0];
     String password = parts[1];
 
-    User result = service.login(username, password);
-    String response = "";
-    if (result.equals(null)) response = "Failure";
-    else response = "Success";
+    if (username.equals("Empty")) username = "";
+    if (password.equals("Empty")) password = "";
 
+    User result = service.login(username, password);
+    String status = "";
+    String response = "";
+    if (result == null) {
+      status = "Error: Invalid credentials";
+      response = "{ \"status\": \"" + status + "\" }";
+    } else {
+      status = "Success";
+      response = "{ \"status\": \"" + status + "\", \"username\": \"" + result.getUsername() + "\", \"password\": \""
+          + result.getPassword() + "\", \"role\": \"" + result.getRole() + "\" }";
+    }
     exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+    exchange.getResponseHeaders().add("Content-Type", "application/json");
     exchange.sendResponseHeaders(200, response.length());
     OutputStream os = exchange.getResponseBody();
     os.write(response.getBytes());

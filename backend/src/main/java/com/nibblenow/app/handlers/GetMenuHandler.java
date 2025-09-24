@@ -6,12 +6,12 @@ import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
+import com.nibblenow.app.Database;
 import com.nibblenow.app.MenuItem;
-import com.nibblenow.app.services.MenuUpdateService;
 
-public class MenuAddItemHandler implements HttpHandler {
-  private final MenuUpdateService service = new MenuUpdateService();
+public class GetMenuHandler implements HttpHandler {
 
   @Override
   public void handle(HttpExchange exchange) throws IOException {
@@ -19,20 +19,19 @@ public class MenuAddItemHandler implements HttpHandler {
     byte[] data = is.readAllBytes();
     String input = new String(data).trim();
 
-    String[] parts = input.split(",");
-    String itemName = parts[0];
-    String itemDescription = parts[1];
-
-    if (itemName.equals("Empty")) itemName = "";
-    if (itemDescription.equals("Empty")) itemDescription = "";
-
-    MenuItem result = service.addItem("500 Degrees", itemName, itemDescription);
-    String response = "";
-
-    if (result == null) response = "Error: Item not added";
-    else response = "Item added successfully"; 
+    ArrayList<MenuItem> menu = Database.RESTAURANTS.get(input).getMenu();
+    String response = "{ \"menu\": [";
+    for (int i = 0; i < menu.size(); i++) {
+      if (i != menu.size() - 1) {
+        response += "{ \"name\": \"" + menu.get(i).getName() + "\", \"description\": \"" + menu.get(i).getDescription() + "\" },";
+      } else {
+        response += "{ \"name\": \"" + menu.get(i).getName() + "\", \"description\": \"" + menu.get(i).getDescription() + "\" }";
+      }
+    }
+    response += "] }";
 
     exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+    exchange.getResponseHeaders().add("Content-Type", "application/json");
     exchange.sendResponseHeaders(200, response.length());
     OutputStream os = exchange.getResponseBody();
     os.write(response.getBytes());

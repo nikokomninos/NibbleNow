@@ -10,7 +10,7 @@ import java.io.OutputStream;
 import com.nibblenow.app.MenuItem;
 import com.nibblenow.app.services.MenuUpdateService;
 
-public class MenuAddItemHandler implements HttpHandler {
+public class MenuEditItemHandler implements HttpHandler {
   private final MenuUpdateService service = new MenuUpdateService();
 
   @Override
@@ -20,17 +20,18 @@ public class MenuAddItemHandler implements HttpHandler {
     String input = new String(data).trim();
 
     String[] parts = input.split(",");
-    String itemName = parts[0];
-    String itemDescription = parts[1];
+    String oldItemName = parts[0];
+    String newItemName = parts[1];
+    String newItemDescription = parts[2];
 
-    if (itemName.equals("Empty")) itemName = "";
-    if (itemDescription.equals("Empty")) itemDescription = "";
+    if (newItemName.equals("Empty")) newItemName = "";
+    if (newItemDescription.equals("Empty")) newItemDescription = "";
 
-    MenuItem result = service.addItem("500 Degrees", itemName, itemDescription);
+    MenuItem result = service.editItem("500 Degrees", oldItemName, newItemName, newItemDescription);
     String response = "";
 
-    if (result == null) response = "Error: Item not added";
-    else response = "Item added successfully"; 
+    if (result == null) response = "Error: Item not edited";
+    else response = "Item edited successfully"; 
 
     exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
     exchange.sendResponseHeaders(200, response.length());

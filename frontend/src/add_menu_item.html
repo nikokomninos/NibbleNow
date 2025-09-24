@@ -11,17 +11,26 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="script.js"></script>
   </head>
 
   <body class="font-notosans bg-[#FDFDFF] text-[#352F36]">
     <div class="h-screen flex flex-col justify-center items-center">
       <div>
-        <a
-          href="dashboard.html"
-          class="flex justify-center items-center p-5 mb-10 font-semibold w-[200px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg hover:bg-gray-200 ease-linear duration-100"
-        >
-          Back
-        </a>
+        <div class="flex flex-row justify-between">
+          <a
+            href="restaurant1_owner.html"
+            class="flex justify-center items-center p-5 mb-10 font-semibold w-[200px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg hover:bg-gray-200 ease-linear duration-100"
+          >
+            Back
+          </a>
+          <button
+            onclick="addMenuItem()"
+            class="flex justify-center items-center p-5 mb-10 font-semibold w-[200px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg hover:bg-gray-200 ease-linear duration-100"
+          >
+            Add Item
+          </button>
+        </div>
         <div
           class="flex flex-col justify-center items-center mx-auto p-20 w-[800px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg"
         >
@@ -37,29 +46,20 @@
 
           <div class="flex flex-col mb-5">
             <input
+              id="itemName"
               type="text"
               placeholder="Item Name"
               class="rounded-lg w-[300px] text-center p-2 border-2 mb-4"
             />
             <input
+              id="itemDescription"
               type="text"
               placeholder="Item Description"
               class="rounded-lg w-[300px] text-center p-2 border-2 mb-4"
             />
           </div>
 
-        <p class="text-red-400">
-          Status (will display any errors)
-        </p>
-        </div>
-
-        <div class="flex justify-end">
-          <a
-            href="dashboard.html"
-            class="flex justify-center items-center p-5 mt-10 font-semibold w-[200px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg hover:bg-gray-200 ease-linear duration-100"
-          >
-            Add Item
-          </a>
+          <p id="status">Status</p>
         </div>
       </div>
     </div>
