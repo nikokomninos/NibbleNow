@@ -4,7 +4,7 @@ import com.nibblenow.app.User;
 import com.nibblenow.app.Database;
 import com.nibblenow.app.User;
 
-/*
+/**
  * LoginService:
  * 
  * This service is in charge of handling log in requests from the user.
@@ -13,7 +13,7 @@ import com.nibblenow.app.User;
  */
 public class LoginService
 {
-  /*
+  /**
    * @param username - this is a string between 5 and 25 characters.
    * @param password - this is a string between 5 and 25 characters.
    * @return - a User object if it exists in the database and they entered the correct

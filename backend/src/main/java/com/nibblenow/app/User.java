@@ -12,6 +12,12 @@ public class User {
   private String password;
   private String role;
 
+  /**
+   * Constructor for the User class
+   * @param username a User's username
+   * @param password a User's password
+   * @param role a User's role
+   */
   public User(String username, String password, String role)
   {
     this.username = username;
@@ -19,21 +25,39 @@ public class User {
     this.role = role;
   }
 
+  /**
+   * Gets a User's username
+   * @return a User's username
+   */
   public String getUsername()
   {
     return this.username;
   }
 
+  /**
+   * Gets a User's password
+   * @return a User's password
+   */
   public String getPassword()
   {
     return this.password;
   }
 
+  /**
+   * Gets a User's role
+   * @return a User's role
+   */
   public String getRole()
   {
     return this.role;
   }
 
+  /**
+   * Custom equals method to check if two
+   * users are equal
+   * @param user_p the User being tested for equality
+   * @return true if equal, false otherwise
+   */
   public boolean equals(User user_p)
   {
     if(user_p == null)
@@ -56,6 +80,9 @@ public class User {
     return(equals);
   }
 
+  /**
+   * Prints all of a User's information
+   */
   public String toString()
   {
     return ("Username: " + this.username + "\nPassword: " + this.password + "\nRole: " + this.role);

@@ -27,6 +27,10 @@ public class App {
 
     private static final int PORT = 8000;
 
+    /**
+     * Bootsraps the API endpoints and starts the server
+     * @param args
+     */
     public static void main(String[] args) {
         try {
             HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
@@ -52,7 +56,10 @@ public class App {
         }
     }
 
-    /*
+    /**
+     * populateUserDatabase
+     * 
+     * Populates the user database with sample users
      * We used ChatGPT to generate some fake user data
      * for us to help us test our program.
      */
@@ -82,8 +89,11 @@ public class App {
         System.out.println("User database populated!");
     }
 
-    /*
-     * We used ChatGPT to generate some menu items
+    /**
+     * populateMenu
+     * 
+     * Populates the menu of the restaurant '500 Degrees'
+     * We used ChatGPT to generate some fake food data
      * for us to help us test our program.
      */
     public static void populateMenu() {

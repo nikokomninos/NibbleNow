@@ -3,7 +3,7 @@ package com.nibblenow.app.services;
 import com.nibblenow.app.Database;
 import com.nibblenow.app.User;
 
-/*
+/**
  * RegisterService:
  * 
  * This service is in charge of handling register requests from the user.
@@ -12,7 +12,7 @@ import com.nibblenow.app.User;
  */
 public class RegisterService 
 {
-  /*
+  /**
    * @param username - this is a string between 5 and 25 characters.
    * @param password - this is a string between 5 and 25 characters.
    * @param role - this is a string either (Customer, Restaurant Owner, OR Delivery Driver)
