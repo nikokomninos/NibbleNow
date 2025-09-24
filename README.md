@@ -10,7 +10,7 @@ Christopher Sciortino
 
 ###### Option 1: Run the prebuilt JAR
 
-1. Download the release from the Releases tab
+1. Download the latest release from the Releases tab
 2. `cd` to the where the JAR is downloaded, and run the JAR with `java -cp nibblenow-1.0-SNAPSHOT.jar com.nibblenow.app.App`
 
 ###### Option 2: Build the JAR with Maven
@@ -34,4 +34,4 @@ Christopher Sciortino
 
 ### Documentation
 
-For Javadoc documentation, see `docs/apidocs/allpackages-index.html`
+For Javadoc documentation, see `docs/apidocs/allpackages-index.html`, which is included in the latest release
