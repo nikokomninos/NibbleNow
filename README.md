@@ -32,3 +32,6 @@ Christopher Sciortino
 1. Clone the repository
 2. Open the `frontend` folder and open `login.html`
 
+### Documentation
+
+For Javadoc documentation, see `docs/apidocs/allpackages-index.html`
