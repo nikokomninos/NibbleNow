@@ -3,6 +3,8 @@ package com.nibblenow.app.services;
 import com.nibblenow.app.Database;
 import com.nibblenow.app.User;
 
+import java.util.ArrayList;
+
 /**
  * RegisterService:
  * 
@@ -36,7 +38,7 @@ public class RegisterService
     }
 
     //Varible to return.
-    User returnedUser = new User(username, password, role);
+    User returnedUser = new User(username, password, role, new ArrayList<>());
     
     //Checking for valid character lengths in both username and password.
     boolean usernameValidLength = checkLength(username,5,25);

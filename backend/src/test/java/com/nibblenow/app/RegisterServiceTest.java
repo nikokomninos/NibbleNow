@@ -7,6 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 
 import com.nibblenow.app.services.RegisterService;
 /*
@@ -75,7 +76,7 @@ class RegisterServiceTest {
   @Test
   public void testUserCreateAccountValidMinUsername()
   {
-    User expectedUser = new User("Johns", "JohnPassword", "Customer");
+    User expectedUser = new User("Johns", "JohnPassword", "Customer", new ArrayList<>());
     result = expectedUser.equals(service.register("Johns", "JohnPassword", "Customer"));
     assertTrue(result);
   }
@@ -87,7 +88,7 @@ class RegisterServiceTest {
   @Test
   public void testUserCreateAccountValidMaxUsername()
   {
-    User expectedUser = new User("johnsmith1234567890123456", "JohnPassword", "Customer");
+    User expectedUser = new User("johnsmith1234567890123456", "JohnPassword", "Customer", new ArrayList<>());
     result = expectedUser.equals(service.register("johnsmith1234567890123456", "JohnPassword", "Customer"));
     assertTrue(result);
   }
@@ -143,7 +144,7 @@ class RegisterServiceTest {
   @Test 
   public void testUserCreateAccountInvalidNotUniqueUsername()
   {
-    User userNotUnique = new User("johnsmith", "pass", "Restaurant Owner");
+    User userNotUnique = new User("johnsmith", "pass", "Restaurant Owner", new ArrayList<>());
     db.USERS.add(userNotUnique);
     User response = service.register("johnsmith", "JohnPassword", "Customer");
     assertEquals(null,response);
@@ -156,7 +157,7 @@ class RegisterServiceTest {
   @Test 
   public void testUserCreateAccountInvalidNotUniqueRoleUsername()
   {
-    User userNotUnique = new User("johnsmith", "pass", "Customer");
+    User userNotUnique = new User("johnsmith", "pass", "Customer", new ArrayList<>());
     db.USERS.add(userNotUnique);
     User response = service.register("johnsmith", "JohnPassword", "Customer");
     assertEquals(null,response);
@@ -180,7 +181,7 @@ class RegisterServiceTest {
   @Test
   public void testUserCreateAccountValidPasswordMin()
   {
-    User expectedUser = new User("johnsmith", "JohnP", "Customer");
+    User expectedUser = new User("johnsmith", "JohnP", "Customer", new ArrayList<>());
     result = expectedUser.equals(service.register("johnsmith", "JohnP", "Customer"));
     assertTrue(result);
   }
@@ -192,7 +193,7 @@ class RegisterServiceTest {
   @Test
   public void testUserCreateAccountValidPasswordMax()
   {
-    User expectedUser = new User("johnsmith", "JohnPassword1234567890123", "Customer");
+    User expectedUser = new User("johnsmith", "JohnPassword1234567890123", "Customer", new ArrayList<>());
     result = expectedUser.equals(service.register("johnsmith", "JohnPassword1234567890123", "Customer"));
     assertTrue(result);
   }
@@ -204,7 +205,7 @@ class RegisterServiceTest {
   @Test
   public void testUserCreateAccountValidPasswordUpper()
   {
-    User expectedUser = new User("johnsmith", "Johnpassword", "Customer");
+    User expectedUser = new User("johnsmith", "Johnpassword", "Customer", new ArrayList<>());
     result = expectedUser.equals(service.register("johnsmith", "Johnpassword", "Customer"));
     assertTrue(result);
   }
