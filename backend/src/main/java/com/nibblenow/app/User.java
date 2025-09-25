@@ -1,5 +1,7 @@
 package com.nibblenow.app;
 
+import java.util.ArrayList;
+
 /**
  * User:
  * 
@@ -7,10 +9,12 @@ package com.nibblenow.app;
  * 
  * @author Nikolaos Komninos, Christopher Sciortino
  */
-public class User {
+public class User
+{
   private String username;
   private String password;
   private String role;
+  private ArrayList<MenuItem> cart =  new ArrayList<MenuItem>();
 
   /**
    * Constructor for the User class
@@ -87,4 +91,15 @@ public class User {
   {
     return ("Username: " + this.username + "\nPassword: " + this.password + "\nRole: " + this.role);
   }
+
+  public ArrayList<MenuItem> getCart()
+  {
+    return(cart);
+  }
+
+  public void setCart(ArrayList<MenuItem> newCart)
+  {
+    this.cart = newCart;
+  }
+
 }
