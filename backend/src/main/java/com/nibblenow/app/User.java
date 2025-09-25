@@ -21,12 +21,14 @@ public class User
    * @param username a User's username
    * @param password a User's password
    * @param role a User's role
+   * @param cart a User's cart
    */
-  public User(String username, String password, String role)
+  public User(String username, String password, String role, ArrayList<MenuItem> cart)
   {
     this.username = username;
     this.password = password;
     this.role = role;
+    this.cart = cart;
   }
 
   /**
@@ -92,11 +94,18 @@ public class User
     return ("Username: " + this.username + "\nPassword: " + this.password + "\nRole: " + this.role);
   }
 
+  /**
+   * Gets a User's cart (which is an ArrayList of Menu Items)
+   * @return a ArrayList<MenuItem> cart
+   */
   public ArrayList<MenuItem> getCart()
   {
     return(cart);
   }
 
+  /**
+   * Sets a User's cart given an ArrayList of Menu Items
+   */
   public void setCart(ArrayList<MenuItem> newCart)
   {
     this.cart = newCart;
