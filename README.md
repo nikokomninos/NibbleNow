@@ -35,3 +35,7 @@ Christopher Sciortino
 ### Documentation
 
 For Javadoc documentation, see `docs/apidocs/allpackages-index.html`, which is also included in the latest release
+
+The main methods that are being ran in the backend are located in `backend/src/main/java/com/nibblenow/app/services/`
+
+Their corresponding test classes are located in `backend/src/test/java/com/nibblenow/app/`
