@@ -7,6 +7,10 @@ package com.nibblenow.app.services;
  */
 public class TestPostService {
 
+  /**
+   * @param s
+   * @return
+   */
   public String testPost(String s) {
     return "Hello, " + s + "!";
   } 

@@ -96,7 +96,7 @@ public class User
 
   /**
    * Gets a User's cart (which is an ArrayList of Menu Items)
-   * @return a ArrayList<MenuItem> cart
+   * @return an ArrayList of MenuItem objects
    */
   public Cart getCart()
   {
@@ -105,6 +105,7 @@ public class User
 
   /**
    * Sets a User's cart given an ArrayList of Menu Items
+   * @param newCart a cart object that will replace the current user cart.
    */
   public void setCart(Cart newCart)
   {
