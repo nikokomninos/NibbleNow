@@ -26,6 +26,7 @@ class CartUpdateServiceTest
 
   private CartUpdateService service;
   private MenuItem expected, actual;
+  private Order expectedOrder, actualOrder;
   private Database db;
   private User user;
 
@@ -36,7 +37,13 @@ class CartUpdateServiceTest
     this.db = mock(Database.class);
     this.expected = null;
     this.actual = null;
+<<<<<<< HEAD
     this.user = mock(User.class);
+=======
+    this.expectedOrder = null;
+    this.actualOrder = null;
+    this.user = null;
+>>>>>>> 5bc7fd4 (feat: start submitOrder tests)
   }
 
   @AfterEach
@@ -45,6 +52,8 @@ class CartUpdateServiceTest
     this.service = null;
     this.expected = null;
     this.actual = null;
+    this.expectedOrder = null;
+    this.actualOrder = null;
     this.db = null;
     this.user = null;
   }
@@ -79,5 +88,11 @@ class CartUpdateServiceTest
 
 
   /* TESTS FOR submitOrder() */
+
+  @Test
+  public void submitOrderTestStub() {
+    actualOrder = service.submitOrder(); 
+    assertEquals(null, actualOrder);
+  }
 
 }

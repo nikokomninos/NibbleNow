@@ -49,6 +49,13 @@ public class CartUpdateService
     return null;
   }
 
+  /**
+   * submitOrder:
+   * 
+   * Submits a user's order to the restaurant's list of orders
+   * 
+   * @return an Order object as confirmation
+   */
   public Order submitOrder() {
     return null;
   }
