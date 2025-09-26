@@ -4,7 +4,12 @@ import java.util.ArrayList;
 
 public class Cart
 {
-    private ArrayList<MenuItem> contents = new ArrayList<MenuItem>();
+    private ArrayList<MenuItem> contents;
+
+    public Cart()
+    {
+        contents = new ArrayList<MenuItem>();
+    }
 
     public ArrayList<MenuItem> getContents()
     {

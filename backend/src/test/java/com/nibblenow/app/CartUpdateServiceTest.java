@@ -37,13 +37,7 @@ class CartUpdateServiceTest
     this.db = mock(Database.class);
     this.expected = null;
     this.actual = null;
-<<<<<<< HEAD
-    this.user = mock(User.class);
-=======
-    this.expectedOrder = null;
-    this.actualOrder = null;
-    this.user = null;
->>>>>>> 5bc7fd4 (feat: start submitOrder tests)
+    this.user = new User("username", "password", "Customer", new Cart());
   }
 
   @AfterEach
@@ -66,21 +60,15 @@ class CartUpdateServiceTest
   @Test
   public void customerAddItemToValidEmptyCart()
   {
-    Cart actualCart = new Cart();
-    Cart expectedCart = new Cart();
-
     MenuItem itemToAdd = new MenuItem("Regular Pizza", "A classic pizza with tomato sauce and cheese.");
+    Cart actualCart = new Cart();
+    actualCart.addToCart(itemToAdd);
 
-    expectedCart.addToCart(itemToAdd);
-    
-    if(this.user.getCart().isEmpty() == true)
-    {
-      MenuItem itemAdded = this.service.addItemToCart(this.user, itemToAdd);
+    Cart returnedCart = new Cart();
+    MenuItem itemAdded = this.service.addItemToCart(this.user, itemToAdd);
+    returnedCart = this.user.getCart();
 
-      actualCart = this.user.getCart();
-    }
-
-    boolean isEqual = actualCart.isEqual(expectedCart);
+    boolean isEqual = actualCart.isEqual(returnedCart);
     assertTrue(isEqual);
   }
 
