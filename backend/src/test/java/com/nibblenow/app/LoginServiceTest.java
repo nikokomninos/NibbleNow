@@ -45,7 +45,7 @@ class LoginServiceTest
   @Test
   public void userExistsValidPassword()
   {
-    User testUser = new User("johnsmith", "JohnPassword", "Customer", new ArrayList<>());
+    User testUser = new User("johnsmith", "JohnPassword", "Customer", new Cart());
     db.USERS.add(testUser);
 
     result = testUser.equals(service.login("johnsmith", "JohnPassword"));
@@ -59,7 +59,7 @@ class LoginServiceTest
   @Test
   public void userExistsInvalidPassword()
   {
-    User testUser = new User("johnsmith", "JohnPassword", "Customer", new ArrayList<>());
+    User testUser = new User("johnsmith", "JohnPassword", "Customer", new Cart());
     db.USERS.add(testUser);
 
     result = testUser.equals(service.login("johnsmith", "password"));
@@ -83,7 +83,7 @@ class LoginServiceTest
   @Test
   public void userExistsNoUsername()
   {
-    User testUser = new User("johnsmith", "JohnPassword", "Customer", new ArrayList<>());
+    User testUser = new User("johnsmith", "JohnPassword", "Customer", new Cart());
     db.USERS.add(testUser);
 
     result = testUser.equals(service.login("", "password"));
@@ -96,7 +96,7 @@ class LoginServiceTest
   @Test
   public void userExistsNoPassword()
   {
-    User testUser = new User("johnsmith", "JohnPassword", "Customer", new ArrayList<>());
+    User testUser = new User("johnsmith", "JohnPassword", "Customer", new Cart());
     db.USERS.add(testUser);
 
     result = testUser.equals(service.login("johnsmith", ""));
