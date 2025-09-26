@@ -71,7 +71,7 @@ public class App {
      */
     public static void populateUserDatabase()
     {
-        ArrayList<MenuItem> cart = new ArrayList<MenuItem>();
+        Cart cart = new Cart();
         Database.USERS.add(new User("testUser", "testPassword", "Customer", cart));
         Database.USERS.add(new User("testOwner", "testPassword", "Restaurant Owner", cart));
         

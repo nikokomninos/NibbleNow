@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.nibblenow.app.MenuItem;
 import com.nibblenow.app.Order;
 import com.nibblenow.app.User;
+import com.nibblenow.app.Cart;
 
 /**
  * CartUpdateService:
@@ -30,11 +31,11 @@ public class CartUpdateService
       return(null);
     }
 
-    // Create an ArrayList of menu items and get the cart from the user:
-    ArrayList<MenuItem> newCart = user.getCart();
+    // Create an Cart of menu items and get the cart from the user:
+    Cart newCart = user.getCart();
 
     // Add the new item to our updated ArrayList:
-    newCart.add(item);
+    newCart.addToCart(item);
 
     // Update the user's cart to include the new added item:
     user.setCart(newCart);
@@ -43,7 +44,7 @@ public class CartUpdateService
     return(item);
   }
 
-  
+
   public MenuItem removeItemFromCart() {
     return null;
   }

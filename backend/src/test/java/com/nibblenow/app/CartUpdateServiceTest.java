@@ -21,7 +21,8 @@ import com.nibblenow.app.MenuItem;
 
 import java.util.ArrayList;
 
-class CartUpdateServiceTest {
+class CartUpdateServiceTest
+{
 
   private CartUpdateService service;
   private MenuItem expected, actual;
@@ -29,23 +30,18 @@ class CartUpdateServiceTest {
   private User user;
 
   @BeforeEach
-  public void setUp() {
+  public void setUp()
+  {
     this.service = new CartUpdateService();
     this.db = mock(Database.class);
-    db.RESTAURANTS.put("Pizzaria", new Restaurant("Pizzaria", "A pizzaria"));
-    ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
-    menu.add(new MenuItem("Regular Pizza", "A classic pizza with tomato sauce and cheese."));
-    menu.add(new MenuItem("Sicilian Pizza", "A thick-crust pizza with a variety of toppings."));
-    menu.add(new MenuItem("Calzone", "A folded pizza filled with cheese and toppings."));
-    menu.add(new MenuItem("Garlic Knots", "Dough knots topped with garlic and herbs."));
-    Database.RESTAURANTS.get("500 Degrees").setMenu(menu);
     this.expected = null;
     this.actual = null;
-    this.user = null;
+    this.user = mock(User.class);
   }
 
   @AfterEach
-  public void tearDown() {
+  public void tearDown()
+  {
     this.service = null;
     this.expected = null;
     this.actual = null;
@@ -54,7 +50,30 @@ class CartUpdateServiceTest {
   }
 
   /* TESTS FOR addItemToCart() */
+  /*
+   * This test ensure that the customer can add only one 
+   * item to their order with nothing in their cart yet.
+   */
+  @Test
+  public void customerAddItemToValidEmptyCart()
+  {
+    Cart actualCart = new Cart();
+    Cart expectedCart = new Cart();
 
+    MenuItem itemToAdd = new MenuItem("Regular Pizza", "A classic pizza with tomato sauce and cheese.");
+
+    expectedCart.addToCart(itemToAdd);
+    
+    if(this.user.getCart().isEmpty() == true)
+    {
+      MenuItem itemAdded = this.service.addItemToCart(this.user, itemToAdd);
+
+      actualCart = this.user.getCart();
+    }
+
+    boolean isEqual = actualCart.isEqual(expectedCart);
+    assertTrue(isEqual);
+  }
 
   /* TESTS FOR removeItemFromCart() */
 

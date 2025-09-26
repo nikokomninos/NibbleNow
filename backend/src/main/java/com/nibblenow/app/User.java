@@ -14,7 +14,7 @@ public class User
   private String username;
   private String password;
   private String role;
-  private ArrayList<MenuItem> cart =  new ArrayList<MenuItem>();
+  private Cart cart;
 
   /**
    * Constructor for the User class
@@ -23,7 +23,7 @@ public class User
    * @param role a User's role
    * @param cart a User's cart
    */
-  public User(String username, String password, String role, ArrayList<MenuItem> cart)
+  public User(String username, String password, String role, Cart cart)
   {
     this.username = username;
     this.password = password;
@@ -98,7 +98,7 @@ public class User
    * Gets a User's cart (which is an ArrayList of Menu Items)
    * @return a ArrayList<MenuItem> cart
    */
-  public ArrayList<MenuItem> getCart()
+  public Cart getCart()
   {
     return(cart);
   }
@@ -106,7 +106,7 @@ public class User
   /**
    * Sets a User's cart given an ArrayList of Menu Items
    */
-  public void setCart(ArrayList<MenuItem> newCart)
+  public void setCart(Cart newCart)
   {
     this.cart = newCart;
   }
