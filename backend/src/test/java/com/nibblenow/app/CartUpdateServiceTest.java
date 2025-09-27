@@ -60,15 +60,21 @@ class CartUpdateServiceTest
   @Test
   public void customerAddItemToValidEmptyCart()
   {
-    MenuItem itemToAdd = new MenuItem("Regular Pizza", "A classic pizza with tomato sauce and cheese.");
     Cart actualCart = new Cart();
-    actualCart.addToCart(itemToAdd);
+    Cart expectedCart = new Cart();
 
-    Cart returnedCart = new Cart();
-    MenuItem itemAdded = this.service.addItemToCart(this.user, itemToAdd);
-    returnedCart = this.user.getCart();
+    MenuItem itemToAdd = new MenuItem("Regular Pizza", "A classic pizza with tomato sauce and cheese.");
 
-    boolean isEqual = actualCart.isEqual(returnedCart);
+    expectedCart.addToCart(itemToAdd);
+    
+    if(this.user.getCart().isEmpty() == true)
+    {
+      MenuItem itemAdded = this.service.addItemToCart(this.user, itemToAdd);
+
+      actualCart = this.user.getCart();
+    }
+
+    boolean isEqual = actualCart.isEqual(expectedCart);
     assertTrue(isEqual);
   }
 
