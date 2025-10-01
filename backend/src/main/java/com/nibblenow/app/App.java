@@ -1,6 +1,10 @@
 package com.nibblenow.app;
 
+import com.nibblenow.app.handlers.CartAddItemHandler;
+import com.nibblenow.app.handlers.CartSubmitOrderHandler;
+import com.nibblenow.app.handlers.GetCartHandler;
 import com.nibblenow.app.handlers.GetMenuHandler;
+import com.nibblenow.app.handlers.GetOrdersHandler;
 import com.nibblenow.app.handlers.LoginHandler;
 import com.nibblenow.app.handlers.MenuAddItemHandler;
 import com.nibblenow.app.handlers.MenuEditItemHandler;
@@ -43,6 +47,10 @@ public class App {
             server.createContext("/api/addItem", new MenuAddItemHandler());
             server.createContext("/api/editItem", new MenuEditItemHandler());
             server.createContext("/api/removeItem", new MenuRemoveItemHandler());
+            server.createContext("/api/addItemToCart", new CartAddItemHandler());
+            server.createContext("/api/getCart", new GetCartHandler());
+            server.createContext("/api/submitOrder", new CartSubmitOrderHandler());
+            server.createContext("/api/getOrders", new GetOrdersHandler());
 
             server.setExecutor(null);
             server.start();
@@ -51,6 +59,7 @@ public class App {
             // Populate with sample data
             populateUserDatabase();
             populateMenu();
+            Database.ORDERS.put("500 Degrees", new ArrayList<Order>());
         } catch (IOException e) {
             System.err.println("Error starting server: " + e.getMessage());
         }

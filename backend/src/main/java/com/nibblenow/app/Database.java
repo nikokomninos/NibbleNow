@@ -14,4 +14,5 @@ import java.util.HashMap;
 public class Database {
   public static final ArrayList<User> USERS =  new ArrayList<User>();
   public static final HashMap<String, Restaurant> RESTAURANTS = new HashMap<String, Restaurant>();
+  public static final HashMap<String, ArrayList<Order>> ORDERS = new HashMap<String, ArrayList<Order>>();
 }

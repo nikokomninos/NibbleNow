@@ -7,6 +7,7 @@ import com.nibblenow.app.MenuItem;
 import com.nibblenow.app.Order;
 import com.nibblenow.app.User;
 import com.nibblenow.app.Cart;
+import com.nibblenow.app.Database;
 
 /**
  * CartUpdateService:
@@ -38,7 +39,9 @@ public class CartUpdateService
     newCart.addToCart(item);
 
     // Update the user's cart to include the new added item:
-    user.setCart(newCart);
+    for (User u : Database.USERS) {
+      if (u.equals(user)) user.setCart(newCart);
+    }
 
     // Return the item that was added:
     return(item);
@@ -52,11 +55,20 @@ public class CartUpdateService
   /**
    * submitOrder:
    * 
-   * Submits a user's order to the restaurant's list of orders
+   * Submits a user's order to the restaurant's list of orders,
+   * clearing their cart in the process
    * 
-   * @return an Order object as confirmation
+   * @param user, the user whose order is being submitted
+   * 
+   * @return an Order object containing the customer's order
    */
-  public Order submitOrder() {
-    return null;
+  public Order submitOrder(User user) {
+    Cart temp = user.getCart();
+    if (temp.isEmpty()) return null;
+    else {
+      Database.ORDERS.get("500 Degrees").add(new Order(user.getUsername(), temp.getContents()));
+      user.setCart(new Cart());
+      return new Order(user.getUsername(), temp.getContents());
+    }
   }
 }

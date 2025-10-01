@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>500 Degrees - NibbleNow</title>
+    <title>Restaurant 1 - NibbleNow</title>
     <link href="tailwind/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,38 +14,31 @@
     <script src="script.js"></script>
   </head>
 
-  <body onload="buildMenuOwner('500 Degrees')" class="font-notosans bg-[#FDFDFF] text-[#352F36]">
+  <body
+    onload="buildCart();"
+    class="font-notosans bg-[#FDFDFF] text-[#352F36]"
+  >
     <div class="h-screen flex flex-col justify-center items-center">
       <div>
         <div class="flex flex-row justify-between">
           <a
-            href="dashboard.html"
+            href="restaurant1_customer.html"
             class="flex justify-center items-center p-5 mb-10 font-semibold w-[200px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg hover:bg-gray-200 ease-linear duration-100"
           >
             Back
           </a>
-
-          <a
-            href="orders.html"
+          <button
+            onclick="submitOrder()"
             class="flex justify-center items-center p-5 mb-10 font-semibold w-[200px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg hover:bg-gray-200 ease-linear duration-100"
           >
-            Orders
-          </a>
-
-          <a
-            href="add_menu_item.html"
-            class="flex justify-center items-center p-5 mb-10 font-semibold w-[200px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg hover:bg-gray-200 ease-linear duration-100"
-          >
-            Add Menu Item
-          </a>
+            Submit Order
+          </button>
         </div>
         <div
           class="flex flex-col mx-auto p-20 w-[800px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg"
         >
-          <h1 class="text-4xl font-bold mb-3">500 Degrees</h1>
-          <h2 class="mb-20">Pizzeria at Adelphi University</h2>
-
-          <div id="menuContainer" />
+          <h1 class="text-4xl font-bold mb-20">Your Cart</h1>
+          <div id="cartContainer" />
         </div>
       </div>
     </div>

@@ -102,12 +102,12 @@ const setRestaurantButtonRole = () => {
 };
 
 /**
- * getMenuOwner:
+ * buildMenuOwner:
  * 
  * Gets the menu of a restaurant, for the owner view of said restaurant
  * @param {*} restaurant, the name of the restaurant
  */
-const getMenuOwner = async (restaurant) => {
+const buildMenuOwner = async (restaurant) => {
   const container = document.querySelector("#menuContainer");
   const res = await fetch("http://localhost:8000/api/getMenu", {
     method: "POST",
@@ -163,6 +163,7 @@ const getMenuOwner = async (restaurant) => {
     optionsDiv.appendChild(removeButton);
   });
 };
+
 
 /**
  * addMenuItem:
@@ -261,4 +262,204 @@ const removeMenuItem = async () => {
     }, 1000);
   }
   else document.getElementById("status").className = "text-red-400";
+}
+
+/**
+ * buildMenuCustomer:
+ * 
+ * Gets the menu of a restaurant, for the owner view of said restaurant
+ * @param {String} restaurant, the name of the restaurant
+ */
+const buildMenuCustomer = async (restaurant) => {
+  const container = document.querySelector("#menuContainer");
+  const res = await fetch("http://localhost:8000/api/getMenu", {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "text/plain" },
+    body: restaurant,
+  });
+  const data = await res.json();
+
+  // Builds DOM elements for each item on the menu 
+  data.menu.forEach((item) => {
+    const name = document.createElement("h1");
+    name.className = "text-lg font-semibold mb-3";
+    name.textContent = item.name;
+    container.appendChild(name);
+
+    const mainDiv = document.createElement("div");
+    mainDiv.className = "grid grid-cols-2 mb-10";
+    container.appendChild(mainDiv);
+
+    const descDiv = document.createElement("div");
+    descDiv.className = "col-span-1";
+    mainDiv.appendChild(descDiv);
+
+    const description = document.createElement("p");
+    description.className = "text-xs";
+    description.textContent = item.description;
+    descDiv.appendChild(description);
+
+    const optionsDiv = document.createElement("div");
+    optionsDiv.className = "col-span-1 flex justify-end items-center";
+    mainDiv.appendChild(optionsDiv);
+
+    const addButton = document.createElement("button");
+    addButton.className =
+      "mr-5 border-2 rounded-xl bg-white p-2 hover:bg-neutral-100 ease-linear duration-100";
+    addButton.textContent = "Add To Cart";
+    addButton.onclick = () => { addItemToCart(item.name, item.description); }
+    optionsDiv.appendChild(addButton);
+
+    const statusText = document.createElement("p");
+    statusText.className = "text-xs";
+    statusText.id = "status";
+    statusText.textContent = "Status";
+    optionsDiv.appendChild(statusText);
+  });
+};
+
+/**
+ * buildCart:
+ * 
+ * Gets the cart of the logged in user
+ */
+const buildCart = async () => {
+  const container = document.querySelector("#cartContainer");
+  const res = await fetch("http://localhost:8000/api/getCart", {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "text/plain" },
+    body: localStorage.getItem("username"),
+  });
+  const data = await res.json();
+
+  data.cart.forEach((item) => {
+    const name = document.createElement("h1");
+    name.className = "text-lg font-semibold mb-3";
+    name.textContent = item.name;
+    container.appendChild(name);
+
+    const mainDiv = document.createElement("div");
+    mainDiv.className = "grid grid-cols-2 mb-10";
+    container.appendChild(mainDiv);
+
+    const descDiv = document.createElement("div");
+    descDiv.className = "col-span-1";
+    mainDiv.appendChild(descDiv);
+
+    const description = document.createElement("p");
+    description.className = "text-xs";
+    description.textContent = item.description;
+    descDiv.appendChild(description);
+
+    const optionsDiv = document.createElement("div");
+    optionsDiv.className = "col-span-1 flex justify-end items-center";
+    mainDiv.appendChild(optionsDiv);
+
+    const addButton = document.createElement("button");
+    addButton.className =
+      "mr-5 border-2 rounded-xl bg-white p-2 hover:bg-neutral-100 ease-linear duration-100";
+    addButton.textContent = "Remove From Cart";
+    addButton.onclick = () => {
+    }
+    optionsDiv.appendChild(addButton);
+
+    const statusText = document.createElement("p");
+    statusText.className = "text-xs";
+    statusText.id = "status";
+    statusText.textContent = "Status";
+    optionsDiv.appendChild(statusText);
+  });
+
+
+}
+
+/**
+ * addItemToCart:
+ * 
+ * Adds an item to the cart of the logged in user
+ * @param {String} itemName 
+ * @param {String} itemDescription 
+ */
+const addItemToCart = async (itemName, itemDescription) => {
+  const res = await fetch("http://localhost:8000/api/addItemToCart", {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "text/plain" },
+    body: localStorage.getItem("username") + "," + itemName + "," + itemDescription
+  });
+  const data = await res.text();
+
+  document.getElementById("status").innerText = data;
+  if (document.getElementById("status").innerText == "Item added successfully to cart") {
+    document.getElementById("status").className = "text-xs text-green-400";
+  }
+  else document.getElementById("status").className = "text-xs text-red-400";
+
+  window.setTimeout(() => {
+    document.getElementById("status").innerText = "Status";
+    document.getElementById("status").className = "text-xs";
+  }, 2000);
+}
+
+/**
+ * submitOrder:
+ * 
+ * Submits the order for the logged in user
+ */
+const submitOrder = async () => {
+  const res = await fetch("http://localhost:8000/api/submitOrder", {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "text/plain" },
+    body: localStorage.getItem("username")
+  });
+  const data = await res.text();
+
+  if (data == "Order submitted successfully") {
+    alert("Order submitted successfully!");
+    window.location.href = "./restaurant1_customer.html";
+  }
+  else alert("Error: Order not submitted");
+}
+
+/**
+ * getOrders:
+ * 
+ * Gets all orders for a restaurant 
+ * @param {String} restaurant 
+ */
+const getOrders = async (restaurant) => {
+  const container = document.querySelector("#ordersContainer");
+  const res = await fetch("http://localhost:8000/api/getOrders", {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "text/plain" },
+    body: restaurant,
+  });
+  const data = await res.json();
+
+  data.orders.forEach((order) => {
+    const orderDiv = document.createElement("div");
+    orderDiv.className = "flex flex-col p-5 ml-10 mr-10 w-[300px] border-2 rounded-3xl bg-[#F6F6FF] drop-shadow-lg hover:bg-gray-200 ease-linear duration-100";
+    container.appendChild(orderDiv);
+
+    const username = document.createElement("h1");
+    username.className = "text-2xl font-semibold mb-3";
+    username.textContent = order.username;
+    orderDiv.appendChild(username);
+
+    const itemsHeader = document.createElement("h2");
+    itemsHeader.className = "text-lg mb-3";
+    itemsHeader.textContent = "Items:";
+    orderDiv.appendChild(itemsHeader);
+
+    const itemsList = document.createElement("p");
+    itemsList.className = "text-xs";
+    itemsList.textContent = order.items.join(", ");
+    orderDiv.appendChild(itemsList);
+
+  });
+
 }

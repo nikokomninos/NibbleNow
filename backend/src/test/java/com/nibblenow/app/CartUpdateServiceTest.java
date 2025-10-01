@@ -20,6 +20,7 @@ import com.nibblenow.app.services.CartUpdateService;
 import com.nibblenow.app.MenuItem;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 class CartUpdateServiceTest
 {
@@ -38,6 +39,7 @@ class CartUpdateServiceTest
     this.expected = null;
     this.actual = null;
     this.user = new User("username", "password", "Customer", new Cart());
+    db.ORDERS.put("500 Degrees", new ArrayList<Order>());
   }
 
   @AfterEach
@@ -83,9 +85,58 @@ class CartUpdateServiceTest
 
   /* TESTS FOR submitOrder() */
 
+  /**
+   * submitOrderTestStub:
+   * 
+   * Test stub for submitOrder()
+   */
   @Test
   public void submitOrderTestStub() {
-    actualOrder = service.submitOrder(); 
+    actualOrder = service.submitOrder(user); 
+    assertEquals(null, actualOrder);
+  }
+
+  /**
+   * submitOrderOneValidItem: 
+   * 
+   * Ensure that the customer can submit their order with only one item in the cart
+   */
+  @Test
+  public void submitOrderOneValidItem() {
+    expectedOrder = new Order(user.getUsername(), new ArrayList<MenuItem>(Arrays.asList(new MenuItem("Pizza", "Example"))));
+    Cart c = new Cart();
+    c.setContents(new ArrayList<MenuItem>(Arrays.asList(new MenuItem("Pizza", "Example"))));
+    user.setCart(c);
+    actualOrder = service.submitOrder(user);
+    assertTrue(expectedOrder.equals(actualOrder));
+  }
+
+  /**
+   * submitOrderMultipleValidItem:
+   * 
+   * Ensure that the customer can submit their order with multiple items in the cart
+   */
+  @Test
+  public void submitOrderMultipleValidItem() {
+    expectedOrder = new Order(
+        user.getUsername(), new ArrayList<MenuItem>(Arrays.asList(new MenuItem("Pizza", "Example"), new MenuItem("Hamburger", "Example"))));
+    Cart c = new Cart();
+    c.setContents(
+        new ArrayList<MenuItem>(Arrays.asList(new MenuItem("Pizza", "Example"), new MenuItem("Hamburger", "Example"))));
+    user.setCart(c);
+    actualOrder = service.submitOrder(user);
+    assertTrue(expectedOrder.equals(actualOrder));
+  }
+
+  /**
+   * submitOrderEmptyCart:
+   * 
+   * Ensure that the customer cannot submit an order with an empty cart
+   */
+  @Test
+  public void submitOrderEmptyCart() {
+    user.setCart(new Cart());
+    actualOrder = service.submitOrder(user);
     assertEquals(null, actualOrder);
   }
 
