@@ -81,6 +81,19 @@ class CartUpdateServiceTest
   }
 
   /* TESTS FOR removeItemFromCart() */
+  @Test
+  public void testCustomerRemoveItemFromOrderValidOneItem()
+  {
+    ArrayList<MenuItem> expectedCart = null;
+
+    MenuItem pizza = new MenuItem("Pizza", "plain cheese pizza");
+    
+    
+    ArrayList<MenuItem> actualCart = new ArrayList<MenuItem>();
+    //User testUser = new User("johnsmith", "johnspassword", "Customer", actualCart);
+
+  }
+
 
 
   /* TESTS FOR submitOrder() */
