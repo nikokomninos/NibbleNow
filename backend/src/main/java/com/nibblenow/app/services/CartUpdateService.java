@@ -48,8 +48,32 @@ public class CartUpdateService
   }
 
 
-  public MenuItem removeItemFromCart() {
-    return null;
+  /**
+   * @param user - this is a User object of the user that should have the MenuItem removed from their cart.
+   * @param item - this is a MenuItem that should be removed from the users cart.
+   * @return - a MenuItem that has been removed from the user's cart or null if the user, user cart or item
+   *           that was passed was null as then the item was not added to any user's cart.
+   */
+  public MenuItem removeItemFromCart(User user, MenuItem itemToBeRemoved) {
+    // If no user or no menu item was passed, or the cart is empty return null as the function can't run:
+    if(user == null || itemToBeRemoved == null || user.getCart().isEmpty())
+    {
+      return(null);
+    }
+
+    // Create an Cart of menu items and get the cart from the user:
+    Cart newCart = user.getCart();
+
+    // remove the item to our updated ArrayList:
+    newCart.removeFromCart(itemToBeRemoved);
+
+    // Update the user's cart to include the new added item:
+    for (User u : Database.USERS) {
+      if (u.equals(user)) user.setCart(newCart);
+    }
+
+    // Return the item that was removed:
+    return(itemToBeRemoved);
   }
 
   /**

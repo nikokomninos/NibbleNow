@@ -22,8 +22,7 @@ import com.nibblenow.app.MenuItem;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class CartUpdateServiceTest
-{
+class CartUpdateServiceTest {
 
   private CartUpdateService service;
   private MenuItem expected, actual;
@@ -32,8 +31,7 @@ class CartUpdateServiceTest
   private User user;
 
   @BeforeEach
-  public void setUp()
-  {
+  public void setUp() {
     this.service = new CartUpdateService();
     this.db = mock(Database.class);
     this.expected = null;
@@ -43,8 +41,7 @@ class CartUpdateServiceTest
   }
 
   @AfterEach
-  public void tearDown()
-  {
+  public void tearDown() {
     this.service = null;
     this.expected = null;
     this.actual = null;
@@ -56,21 +53,19 @@ class CartUpdateServiceTest
 
   /* TESTS FOR addItemToCart() */
   /*
-   * This test ensure that the customer can add only one 
+   * This test ensure that the customer can add only one
    * item to their order with nothing in their cart yet.
    */
   @Test
-  public void customerAddItemToValidEmptyCart()
-  {
+  public void customerAddItemToValidEmptyCart() {
     Cart actualCart = new Cart();
     Cart expectedCart = new Cart();
 
     MenuItem itemToAdd = new MenuItem("Regular Pizza", "A classic pizza with tomato sauce and cheese.");
 
     expectedCart.addToCart(itemToAdd);
-    
-    if(this.user.getCart().isEmpty() == true)
-    {
+
+    if (this.user.getCart().isEmpty() == true) {
       MenuItem itemAdded = this.service.addItemToCart(this.user, itemToAdd);
 
       actualCart = this.user.getCart();
@@ -81,7 +76,71 @@ class CartUpdateServiceTest
   }
 
   /* TESTS FOR removeItemFromCart() */
+  /*
+   * Ensure that the customer can remove an
+   * item from their order, with only one item in their cart.
+   */
+  @Test
+  public void testCustomerRemoveItemFromOrderValidOneItem() {
+    // Adding to, then removing from the users cart.
+    Cart actualCart = this.user.getCart();
+    MenuItem pizza = new MenuItem("Pizza", "plain cheese pizza");
+    actualCart.addToCart(pizza);
+    service.removeItemFromCart(this.user, pizza);
 
+    boolean isEmpty = false;
+
+    // The users cart should now be empty.
+    if (actualCart.isEmpty()) {
+      isEmpty = true;
+    }
+    assertTrue(isEmpty);
+  }
+
+  /*
+   * Ensure that the customer can remove an
+   * item from their order, with multiple items in their cart.
+   */
+  @Test
+  public void testCustomerRemoveItemFromOrderValidMultipleItems() {
+    // Adding both the pizza and hamburger to the users cart, only removing the
+    // pizza.
+    Cart actualCart = this.user.getCart();
+    MenuItem pizza = new MenuItem("Pizza", "plain cheese pizza");
+    MenuItem hamburger = new MenuItem("Hamburger", "juicy hamburger");
+    actualCart.addToCart(pizza);
+    actualCart.addToCart(hamburger);
+    service.removeItemFromCart(this.user, pizza);
+
+    // Expected cart should just have a hamburger.
+    Cart expectedCart = new Cart();
+    expectedCart.addToCart(hamburger);
+
+    boolean isEqual = false;
+
+    if (actualCart.isEqual(expectedCart)) {
+      isEqual = true;
+    }
+    assertTrue(isEqual);
+  }
+
+  /*
+   * Ensure that the customer cannot
+   * remove from an empty cart.
+   */
+  @Test
+  public void testCustomerRemoveItemFromOrderInvalidNoItems() {
+    MenuItem pizza = new MenuItem("Pizza", "plain cheese pizza");
+    MenuItem outcome = service.removeItemFromCart(this.user, pizza);
+
+    boolean isNull = false;
+
+    // If value returned from trying to remove is null
+    if (outcome == null) {
+      isNull = true;
+    }
+    assertTrue(isNull);
+  }
 
   /* TESTS FOR submitOrder() */
 
@@ -92,18 +151,20 @@ class CartUpdateServiceTest
    */
   @Test
   public void submitOrderTestStub() {
-    actualOrder = service.submitOrder(user); 
+    actualOrder = service.submitOrder(user);
     assertEquals(null, actualOrder);
   }
 
   /**
-   * submitOrderOneValidItem: 
+   * submitOrderOneValidItem:
    * 
-   * Ensure that the customer can submit their order with only one item in the cart
+   * Ensure that the customer can submit their order with only one item in the
+   * cart
    */
   @Test
   public void submitOrderOneValidItem() {
-    expectedOrder = new Order(user.getUsername(), new ArrayList<MenuItem>(Arrays.asList(new MenuItem("Pizza", "Example"))));
+    expectedOrder = new Order(user.getUsername(),
+        new ArrayList<MenuItem>(Arrays.asList(new MenuItem("Pizza", "Example"))));
     Cart c = new Cart();
     c.setContents(new ArrayList<MenuItem>(Arrays.asList(new MenuItem("Pizza", "Example"))));
     user.setCart(c);
@@ -114,12 +175,14 @@ class CartUpdateServiceTest
   /**
    * submitOrderMultipleValidItem:
    * 
-   * Ensure that the customer can submit their order with multiple items in the cart
+   * Ensure that the customer can submit their order with multiple items in the
+   * cart
    */
   @Test
   public void submitOrderMultipleValidItem() {
     expectedOrder = new Order(
-        user.getUsername(), new ArrayList<MenuItem>(Arrays.asList(new MenuItem("Pizza", "Example"), new MenuItem("Hamburger", "Example"))));
+        user.getUsername(),
+        new ArrayList<MenuItem>(Arrays.asList(new MenuItem("Pizza", "Example"), new MenuItem("Hamburger", "Example"))));
     Cart c = new Cart();
     c.setContents(
         new ArrayList<MenuItem>(Arrays.asList(new MenuItem("Pizza", "Example"), new MenuItem("Hamburger", "Example"))));

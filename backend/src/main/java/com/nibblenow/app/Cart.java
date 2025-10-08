@@ -68,6 +68,20 @@ public class Cart
         this.contents.add(newContent);
     }
 
+    public MenuItem removeFromCart(MenuItem item)
+    {
+        MenuItem mi = null;
+        for (int i = 0; i < contents.size(); i++)
+        {
+            if (contents.get(i).equals(item))
+            {
+                mi = contents.remove(i);
+                break;
+            }
+        }
+        return mi;
+    }
+
     /**
      * This function will check to see if the cart is empty.
      * @return True if the cart is empty, false otherwise.
