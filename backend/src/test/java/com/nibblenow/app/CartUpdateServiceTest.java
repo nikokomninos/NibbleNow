@@ -22,7 +22,15 @@ import com.nibblenow.app.MenuItem;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class CartUpdateServiceTest {
+/**
+ * CartUpdateServiceTest:
+ * 
+ * This service is in charge of testing the cart update service is working correctly.
+ * 
+ * @author Christopher Sciortino, Nikolaos Komninos, Katarina Liedbeck
+ */
+class CartUpdateServiceTest
+{
 
   private CartUpdateService service;
   private MenuItem expected, actual;
@@ -52,6 +60,7 @@ class CartUpdateServiceTest {
   }
 
   /* TESTS FOR addItemToCart() */
+  
   /*
    * This test ensure that the customer can add only one
    * item to their order with nothing in their cart yet.
@@ -73,6 +82,98 @@ class CartUpdateServiceTest {
 
     boolean isEqual = actualCart.isEqual(expectedCart);
     assertTrue(isEqual);
+  }
+
+  /*
+  * This test ensure that the customer can add only one 
+  * item to their order with other items in their cart.
+  */
+  @Test
+  public void customerAddItemToOrderValidNotEmptyCart()
+  {
+    Cart actualCart = new Cart();
+    Cart expectedCart = new Cart();
+
+    MenuItem pizza = new MenuItem("Regular Pizza", "A classic pizza with tomato sauce and cheese.");
+    MenuItem hamburger = new MenuItem("Hamburger", "A juicy hamburger with a toasted bun.");
+
+    expectedCart.addToCart(pizza);
+    expectedCart.addToCart(hamburger);
+    
+    if(this.user.getCart().isEmpty() == true)
+    {
+      MenuItem itemAdded = this.service.addItemToCart(this.user, pizza);
+
+      actualCart = this.user.getCart();
+    }
+
+    this.service.addItemToCart(this.user, hamburger);
+
+    boolean isEqual = actualCart.isEqual(expectedCart);
+    assertTrue(isEqual);
+  }
+
+
+  /*
+  * This test ensure that the customer can add the
+  * maximum amount of items to their order, which is 10.
+  */
+  @Test
+  public void customerAddItemToOrderValidMaxItems()
+  {
+    Cart actualCart = new Cart();
+    Cart expectedCart = new Cart();
+
+    MenuItem pizza = new MenuItem("Regular Pizza", "A classic pizza with tomato sauce and cheese.");
+
+    for(int i = 0; i < 10; i ++)
+    {
+      expectedCart.addToCart(pizza);
+    }
+    
+    
+    if(this.user.getCart().isEmpty() == true)
+    {
+      for(int i = 0; i < 10; i ++)
+      {
+        MenuItem itemAdded = this.service.addItemToCart(this.user, pizza);
+      }
+      
+      actualCart = this.user.getCart();
+    }
+
+    boolean isEqual = actualCart.isEqual(expectedCart);
+    assertTrue(isEqual);
+  }
+
+    /*
+  * This test ensure that the customer can add the
+  * maximum amount of items to their order, which is 10.
+  */
+  @Test
+  public void customerAddItemToOrderInvalidMoreThanMax()
+  {
+    Cart actualCart = new Cart();
+    Cart expectedCart = new Cart();
+
+    MenuItem pizza = new MenuItem("Regular Pizza", "A classic pizza with tomato sauce and cheese.");
+
+    for(int i = 0; i < 10; i ++)
+    {
+      expectedCart.addToCart(pizza);
+    }
+    
+    MenuItem itemAdded = new MenuItem("notnull", "notnull");
+
+    if(this.user.getCart().isEmpty() == true)
+    {
+      for(int i = 0; i < 11; i ++)
+      {
+        itemAdded = this.service.addItemToCart(this.user, pizza);
+      }
+    }
+
+    assertTrue(itemAdded != null);
   }
 
   /* TESTS FOR removeItemFromCart() */
