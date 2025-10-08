@@ -1,6 +1,7 @@
 package com.nibblenow.app;
 
 import com.nibblenow.app.handlers.CartAddItemHandler;
+import com.nibblenow.app.handlers.CartRemoveItemHandler;
 import com.nibblenow.app.handlers.CartSubmitOrderHandler;
 import com.nibblenow.app.handlers.GetCartHandler;
 import com.nibblenow.app.handlers.GetMenuHandler;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 /**
  * App.java: 
  * 
- * Boostraps the API endpoints and backend server, using the
+ * Bootstraps the API endpoints and backend server, using the
  * HttpServer class built into the JDK
  * 
  * @author Nikolaos Komninos
@@ -32,8 +33,8 @@ public class App {
     private static final int PORT = 8000;
 
     /**
-     * Bootsraps the API endpoints and starts the server
-     * @param args
+     * Bootstraps the API endpoints and starts the server
+     * @param args command line arguments
      */
     public static void main(String[] args) {
         try {
@@ -48,6 +49,7 @@ public class App {
             server.createContext("/api/editItem", new MenuEditItemHandler());
             server.createContext("/api/removeItem", new MenuRemoveItemHandler());
             server.createContext("/api/addItemToCart", new CartAddItemHandler());
+            server.createContext("/api/removeItemFromCart", new CartRemoveItemHandler());
             server.createContext("/api/getCart", new GetCartHandler());
             server.createContext("/api/submitOrder", new CartSubmitOrderHandler());
             server.createContext("/api/getOrders", new GetOrdersHandler());

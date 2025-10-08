@@ -49,7 +49,7 @@ public class CartUpdateService
 
   /**
    * @param user - this is a User object of the user that should have the MenuItem removed from their cart.
-   * @param item - this is a MenuItem that should be removed from the users cart.
+   * @param itemToBeRemoved - this is a MenuItem that should be removed from the users cart.
    * @return - a MenuItem that has been removed from the user's cart or null if the user or item
    *           that was passed was null as then the item was not added to any user's cart.
    */
@@ -60,11 +60,11 @@ public class CartUpdateService
       return(null);
     }
 
-    // Create an Cart of menu items and get the cart from the user:
+    // Create a Cart of menu items and get the cart from the user:
     Cart newCart = user.getCart();
 
-    // Add the new item to our updated ArrayList:
-    newCart.removeFromCart(itemToBeRemoved);
+    // Remove the item from ArrayList:
+    MenuItem mi = newCart.removeFromCart(itemToBeRemoved);
 
     // Update the user's cart to include the new added item:
     for (User u : Database.USERS) {
@@ -72,7 +72,7 @@ public class CartUpdateService
     }
 
     // Return the item that was added:
-    return(itemToBeRemoved);
+    return(mi);
   }
 
   /**

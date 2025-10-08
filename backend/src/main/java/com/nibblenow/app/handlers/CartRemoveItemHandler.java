@@ -13,12 +13,12 @@ import com.nibblenow.app.User;
 import com.nibblenow.app.services.CartUpdateService;
 
 /**
- * CartAddItemHandler:
+ * CartRemoveItemHandler:
  * 
- * An HTTP endpoint that attempts to add an item to a
+ * An HTTP endpoint that attempts to remove an item from a
  * customer's cart, and returns the result
  */
-public class CartAddItemHandler implements HttpHandler {
+public class CartRemoveItemHandler implements HttpHandler {
   private final CartUpdateService service = new CartUpdateService();
 
   @Override
@@ -41,11 +41,11 @@ public class CartAddItemHandler implements HttpHandler {
 
     if (!itemName.isEmpty() && !itemDescription.isEmpty()) item = new MenuItem(itemName, itemDescription);
 
-    MenuItem result = service.addItemToCart(user, item);
+    MenuItem result = service.removeItemFromCart(user, item);
     String response = "";
 
-    if (result == null) response = "Error: Item not added to cart";
-    else response = "Item added successfully to cart"; 
+    if (result == null) response = "Error: Item not removed from cart";
+    else response = "Item removed successfully from cart"; 
 
     exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
     exchange.sendResponseHeaders(200, response.length());

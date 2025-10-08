@@ -311,11 +311,6 @@ const buildMenuCustomer = async (restaurant) => {
     addButton.onclick = () => { addItemToCart(item.name, item.description); }
     optionsDiv.appendChild(addButton);
 
-    const statusText = document.createElement("p");
-    statusText.className = "text-xs";
-    statusText.id = "status";
-    statusText.textContent = "Status";
-    optionsDiv.appendChild(statusText);
   });
 };
 
@@ -357,19 +352,17 @@ const buildCart = async () => {
     optionsDiv.className = "col-span-1 flex justify-end items-center";
     mainDiv.appendChild(optionsDiv);
 
-    const addButton = document.createElement("button");
-    addButton.className =
+    const removeButton = document.createElement("button");
+    removeButton.className =
       "mr-5 border-2 rounded-xl bg-white p-2 hover:bg-neutral-100 ease-linear duration-100";
-    addButton.textContent = "Remove From Cart";
-    addButton.onclick = () => {
+    removeButton.textContent = "Remove From Cart";
+    removeButton.onclick = () => { 
+      removeItemFromCart(item.name, item.description) 
+      window.setTimeout(() => {
+        location.reload();
+      }, 1500)
     }
-    optionsDiv.appendChild(addButton);
-
-    const statusText = document.createElement("p");
-    statusText.className = "text-xs";
-    statusText.id = "status";
-    statusText.textContent = "Status";
-    optionsDiv.appendChild(statusText);
+    optionsDiv.appendChild(removeButton);
   });
 
 
@@ -393,13 +386,41 @@ const addItemToCart = async (itemName, itemDescription) => {
 
   document.getElementById("status").innerText = data;
   if (document.getElementById("status").innerText == "Item added successfully to cart") {
-    document.getElementById("status").className = "text-xs text-green-400";
+    document.getElementById("status").className = "text-green-400 text-center mb-10";
   }
-  else document.getElementById("status").className = "text-xs text-red-400";
+  else document.getElementById("status").className = "text-red-400 text-center mb-10";
 
   window.setTimeout(() => {
     document.getElementById("status").innerText = "Status";
-    document.getElementById("status").className = "text-xs";
+    document.getElementById("status").className = "text-center mb-10";
+  }, 2000);
+}
+
+/**
+ * removeItemFromCart:
+ *
+ * Removes an item from the cart of the logged in user
+ * @param {String} itemName 
+ * @param {String} itemDescription 
+ */
+const removeItemFromCart = async (itemName, itemDescription) => {
+  const res = await fetch("http://localhost:8000/api/removeItemFromCart", {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "text/plain" },
+    body: localStorage.getItem("username") + "," + itemName + "," + itemDescription
+  });
+  const data = await res.text();
+
+  document.getElementById("status").innerText = data;
+  if (document.getElementById("status").innerText == "Item removed successfully from cart") {
+    document.getElementById("status").className = "text-center mb-10 text-green-400";
+  }
+  else document.getElementById("status").className = "text-center mb-10 text-red-400";
+
+  window.setTimeout(() => {
+    document.getElementById("status").innerText = "Status";
+    document.getElementById("status").className = "text-center mb-10";
   }, 2000);
 }
 
@@ -461,5 +482,4 @@ const getOrders = async (restaurant) => {
     orderDiv.appendChild(itemsList);
 
   });
-
 }

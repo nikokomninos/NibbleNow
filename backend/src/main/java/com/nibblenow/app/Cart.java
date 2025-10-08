@@ -17,6 +17,9 @@ public class Cart
     // ArrayList to store the MenuItem's the user has in their cart.
     private ArrayList<MenuItem> contents;
 
+    /**
+     * Default constructor for Cart class
+     */
     public Cart()
     {
         contents = new ArrayList<MenuItem>();
@@ -43,7 +46,7 @@ public class Cart
 
     /** Checks to see if the carts are equal by iterating through the items in contents
      *  and uses the custom equals method that was written for the MenuItem.
-     * @param Cart represents the cart we are comparing
+     * @param cart_p represents the cart we are comparing
      * @return True if the two carts are the same, false otherwise.
      */ 
     public boolean isEqual(Cart cart_p)
@@ -68,6 +71,11 @@ public class Cart
         this.contents.add(newContent);
     }
 
+    /**
+     * Removes an item from a user's cart
+     * @param item the item being removed from the cart
+     * @return the removed item
+     */
     public MenuItem removeFromCart(MenuItem item)
     {
         MenuItem mi = null;
