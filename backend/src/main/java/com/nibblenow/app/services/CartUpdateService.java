@@ -55,7 +55,7 @@ public class CartUpdateService
    */
   public MenuItem removeItemFromCart(User user, MenuItem itemToBeRemoved) {
     // If no user or no menu item was passed, return null as the function can't run:
-    if(user == null || itemToBeRemoved == null)
+    if(user == null || itemToBeRemoved == null || user.getCart().isEmpty())
     {
       return(null);
     }
@@ -64,7 +64,7 @@ public class CartUpdateService
     Cart newCart = user.getCart();
 
     // Add the new item to our updated ArrayList:
-    newCart.addToCart(itemToBeRemoved);
+    newCart.removeFromCart(itemToBeRemoved);
 
     // Update the user's cart to include the new added item:
     for (User u : Database.USERS) {
