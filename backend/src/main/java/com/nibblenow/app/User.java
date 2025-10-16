@@ -1,7 +1,5 @@
 package com.nibblenow.app;
 
-import java.util.ArrayList;
-
 /**
  * User:
  * 
@@ -104,7 +102,7 @@ public class User
   }
 
   /**
-   * Sets a User's cart given an ArrayList of Menu Items
+   * Sets a User's cart given a Cart Object
    * @param newCart a cart object that will replace the current user cart.
    */
   public void setCart(Cart newCart)

@@ -1,8 +1,6 @@
 
 package com.nibblenow.app.services;
 
-import java.util.ArrayList;
-
 import com.nibblenow.app.MenuItem;
 import com.nibblenow.app.Order;
 import com.nibblenow.app.User;
@@ -85,12 +83,14 @@ public class CartUpdateService
    * 
    * @return an Order object containing the customer's order
    */
-  public Order submitOrder(User user) {
+  public Order submitOrder(User user)
+  {
     Cart temp = user.getCart();
     if (temp.isEmpty()) return null;
-    else {
+    else
+    {
       Database.ORDERS.get("500 Degrees").add(new Order(user.getUsername(), temp.getContents()));
-      user.setCart(new Cart());
+      user.getCart().clearContents();
       return new Order(user.getUsername(), temp.getContents());
     }
   }

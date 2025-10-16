@@ -44,6 +44,14 @@ public class Cart
         this.contents = newContents;
     }
 
+    /**
+     * Clears the contents of the cart
+     */
+    public void clearContents()
+    {
+        this.contents.clear();
+    }
+
     /** Checks to see if the carts are equal by iterating through the items in contents
      *  and uses the custom equals method that was written for the MenuItem.
      * @param cart_p represents the cart we are comparing

@@ -10,7 +10,8 @@ import java.util.ArrayList;
  * 
  * @author Nikolaos Komninos
  */
-public class Order {
+public class Order
+{
   private String username;
   private ArrayList<MenuItem> order;
 
@@ -18,7 +19,8 @@ public class Order {
    * Constructor for the Order class
    * @param order an ArrayList of MenuItem objects
    */
-  public Order(String username, ArrayList<MenuItem> order) {
+  public Order(String username, ArrayList<MenuItem> order)
+  {
     this.username = username;
     this.order = order;
   }
