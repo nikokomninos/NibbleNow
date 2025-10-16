@@ -86,12 +86,12 @@ public class CartUpdateService
    * @return an Order object containing the customer's order
    */
   public Order submitOrder(User user) {
-    Cart temp = user.getCart();
-    if (temp.isEmpty()) return null;
+    if (user.getCart().isEmpty()) return null;
     else {
-      Database.ORDERS.get("500 Degrees").add(new Order(user.getUsername(), temp.getContents()));
+      Database.ORDERS.get("500 Degrees").add(new Order(user.getUsername(), user.getCart().getContents()));
+      Order o = new Order(user.getUsername(), user.getCart().getContents());
       user.setCart(new Cart());
-      return new Order(user.getUsername(), temp.getContents());
+      return o;
     }
   }
 }

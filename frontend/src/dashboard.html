@@ -19,12 +19,20 @@
   >
     <div class="flex flex-col justify-center items-center mb-20">
       <div id="greeting" class="text-center mb-10 text-3xl">Welcome, User</div>
-      <button
-        onclick="logout()"
-        class="p-3 border-2 rounded-xl drop-shadow-lg text-xl font-semibold bg-[#F6F6FF] text-[#352F36] mr-5 ml-5 hover:bg-gray-200 ease-linear duration-100"
-      >
-        Logout
-      </button>
+      <div class="flex flex-row">
+        <button
+          id="ordersButton"
+          class="p-3 border-2 rounded-xl drop-shadow-lg text-xl font-semibold bg-[#F6F6FF] text-[#352F36] mr-5 ml-5 hover:bg-gray-200 ease-linear duration-100"
+        >
+          Orders
+        </button>
+        <button
+          onclick="logout()"
+          class="p-3 border-2 rounded-xl drop-shadow-lg text-xl font-semibold bg-[#F6F6FF] text-[#352F36] mr-5 ml-5 hover:bg-gray-200 ease-linear duration-100"
+        >
+          Logout
+        </button>
+      </div>
     </div>
     <div class="flex flex-row justify-center items-center">
       <a

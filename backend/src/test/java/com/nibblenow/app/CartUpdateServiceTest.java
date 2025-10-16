@@ -289,6 +289,7 @@ class CartUpdateServiceTest
         new ArrayList<MenuItem>(Arrays.asList(new MenuItem("Pizza", "Example"), new MenuItem("Hamburger", "Example"))));
     user.setCart(c);
     actualOrder = service.submitOrder(user);
+    assertTrue(user.getCart().isEmpty());
     assertTrue(expectedOrder.equals(actualOrder));
   }
 

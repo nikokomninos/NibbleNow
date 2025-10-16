@@ -82,40 +82,39 @@ public class App {
      */
     public static void populateUserDatabase()
     {
-        Cart cart = new Cart();
-        Database.USERS.add(new User("testUser", "testPassword", "Customer", cart));
-        Database.USERS.add(new User("testOwner", "testPassword", "Restaurant Owner", cart));
+        Database.USERS.add(new User("testUser", "testPassword", "Customer", new Cart()));
+        Database.USERS.add(new User("testOwner", "testPassword", "Restaurant Owner", new Cart()));
         
-        Database.USERS.add(new User("jakeThompson22", "FastFoodLover1", "Customer", cart));
-        Database.USERS.add(new User("mariaLopez", "StrongPass2", "Restaurant Owner", cart));
-        Database.USERS.add(new User("driverDylan99", "DriveSafe7", "Delivery Driver", cart));
-        Database.USERS.add(new User("samanthaGreen", "GreenKitchen3", "Restaurant Owner", cart));
-        Database.USERS.add(new User("billyCook88", "BurgerTimeA1", "Restaurant Owner", cart));
-        Database.USERS.add(new User("customerJenny", "BestChoiceB9", "Customer", cart));
-        Database.USERS.add(new User("alexDriver", "ZoomZoomQ4", "Delivery Driver", cart));
-        Database.USERS.add(new User("tinaTurner", "MusicMealsZ2", "Customer", cart));
-        Database.USERS.add(new User("nathanCooks", "PanFryTuna5", "Restaurant Owner", cart));
-        Database.USERS.add(new User("zoeMiller23", "TastyTreatK6", "Customer", cart));
-        Database.USERS.add(new User("carlosDriver", "QuickRunU8", "Delivery Driver", cart));
-        Database.USERS.add(new User("stephBaker", "OvenReadyW3", "Restaurant Owner", cart));
-        Database.USERS.add(new User("happyCustomer", "GreatMealY7", "Customer", cart));
-        Database.USERS.add(new User("graceParks", "DinnerTimeX5", "Restaurant Owner", cart));
-        Database.USERS.add(new User("davidDeliver", "SpeedyG99", "Delivery Driver", cart));
-        Database.USERS.add(new User("michaelChef", "PlateMasterA2", "Restaurant Owner", cart));
-        Database.USERS.add(new User("lindaJones", "FoodFanZ8", "Customer", cart));
-        Database.USERS.add(new User("harryDriver88", "FastTrackR6", "Delivery Driver", cart));
-        Database.USERS.add(new User("restaurantEva", "KitchenProU3", "Restaurant Owner", cart));
-        Database.USERS.add(new User("oliviaCustomer", "MealPassT4", "Customer", cart));
-        Database.USERS.add(new User("noahSmith", "YummyDishK1", "Customer", cart));
-        Database.USERS.add(new User("driverKyle", "DeliverQuickE7", "Delivery Driver", cart));
-        Database.USERS.add(new User("lucasGrill", "HotGrillM2", "Restaurant Owner", cart));
-        Database.USERS.add(new User("emmaFoodie", "SnackTimeF5", "Customer", cart));
-        Database.USERS.add(new User("chefTony88", "MasterCookG3", "Restaurant Owner", cart));
-        Database.USERS.add(new User("danielDrive", "RideOnX9", "Delivery Driver", cart));
-        Database.USERS.add(new User("bellaCustomer", "FoodLoverV6", "Customer", cart));
-        Database.USERS.add(new User("ethanKitchen", "PrepItUpB2", "Restaurant Owner", cart));
-        Database.USERS.add(new User("driverNina", "RunOrderH4", "Delivery Driver", cart));
-        Database.USERS.add(new User("kevinEats", "MealBoxZ1", "Customer", cart));
+        Database.USERS.add(new User("jakeThompson22", "FastFoodLover1", "Customer", new Cart()));
+        Database.USERS.add(new User("mariaLopez", "StrongPass2", "Restaurant Owner", new Cart()));
+        Database.USERS.add(new User("driverDylan99", "DriveSafe7", "Delivery Driver", new Cart()));
+        Database.USERS.add(new User("samanthaGreen", "GreenKitchen3", "Restaurant Owner", new Cart()));
+        Database.USERS.add(new User("billyCook88", "BurgerTimeA1", "Restaurant Owner", new Cart()));
+        Database.USERS.add(new User("customerJenny", "BestChoiceB9", "Customer", new Cart()));
+        Database.USERS.add(new User("alexDriver", "ZoomZoomQ4", "Delivery Driver", new Cart()));
+        Database.USERS.add(new User("tinaTurner", "MusicMealsZ2", "Customer", new Cart()));
+        Database.USERS.add(new User("nathanCooks", "PanFryTuna5", "Restaurant Owner", new Cart()));
+        Database.USERS.add(new User("zoeMiller23", "TastyTreatK6", "Customer", new Cart()));
+        Database.USERS.add(new User("carlosDriver", "QuickRunU8", "Delivery Driver", new Cart()));
+        Database.USERS.add(new User("stephBaker", "OvenReadyW3", "Restaurant Owner", new Cart()));
+        Database.USERS.add(new User("happyCustomer", "GreatMealY7", "Customer", new Cart()));
+        Database.USERS.add(new User("graceParks", "DinnerTimeX5", "Restaurant Owner", new Cart()));
+        Database.USERS.add(new User("davidDeliver", "SpeedyG99", "Delivery Driver", new Cart()));
+        Database.USERS.add(new User("michaelChef", "PlateMasterA2", "Restaurant Owner", new Cart()));
+        Database.USERS.add(new User("lindaJones", "FoodFanZ8", "Customer", new Cart()));
+        Database.USERS.add(new User("harryDriver88", "FastTrackR6", "Delivery Driver", new Cart()));
+        Database.USERS.add(new User("restaurantEva", "KitchenProU3", "Restaurant Owner", new Cart()));
+        Database.USERS.add(new User("oliviaCustomer", "MealPassT4", "Customer", new Cart()));
+        Database.USERS.add(new User("noahSmith", "YummyDishK1", "Customer", new Cart()));
+        Database.USERS.add(new User("driverKyle", "DeliverQuickE7", "Delivery Driver", new Cart()));
+        Database.USERS.add(new User("lucasGrill", "HotGrillM2", "Restaurant Owner", new Cart()));
+        Database.USERS.add(new User("emmaFoodie", "SnackTimeF5", "Customer", new Cart()));
+        Database.USERS.add(new User("chefTony88", "MasterCookG3", "Restaurant Owner", new Cart()));
+        Database.USERS.add(new User("danielDrive", "RideOnX9", "Delivery Driver", new Cart()));
+        Database.USERS.add(new User("bellaCustomer", "FoodLoverV6", "Customer", new Cart()));
+        Database.USERS.add(new User("ethanKitchen", "PrepItUpB2", "Restaurant Owner", new Cart()));
+        Database.USERS.add(new User("driverNina", "RunOrderH4", "Delivery Driver", new Cart()));
+        Database.USERS.add(new User("kevinEats", "MealBoxZ1", "Customer", new Cart()));
 
 
         System.out.println("User database populated!");
