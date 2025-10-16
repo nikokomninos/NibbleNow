@@ -1,8 +1,6 @@
 
 package com.nibblenow.app.services;
 
-import java.util.ArrayList;
-
 import com.nibblenow.app.MenuItem;
 import com.nibblenow.app.Order;
 import com.nibblenow.app.User;
