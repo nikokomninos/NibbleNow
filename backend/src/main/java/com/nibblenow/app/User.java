@@ -109,9 +109,4 @@ public class User
   {
     this.cart = newCart;
   }
-
-  public void clearCart() {
-    this.cart.clearContents();
-  }
-
 }
