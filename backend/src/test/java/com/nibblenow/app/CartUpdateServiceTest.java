@@ -55,6 +55,7 @@ class CartUpdateServiceTest
     this.actual = null;
     this.expectedOrder = null;
     this.actualOrder = null;
+    this.db.USERS.clear();
     this.db = null;
     this.user = null;
   }
@@ -303,6 +304,36 @@ class CartUpdateServiceTest
     user.setCart(new Cart());
     actualOrder = service.submitOrder(user);
     assertEquals(null, actualOrder);
+  }
+
+  /* TESTS FOR submitOrder() */
+
+  /**
+   * assignDriverVaid
+   *
+   * Ensure that a driver is returned when attempting
+   * to be assigned
+   */
+  @Test
+  public void assignDriverValid() {
+    User expected = new User("driver", "testPass", "Delivery Driver", new Cart());
+    User u = new User("driver", "testPass", "Delivery Driver", new Cart());
+    db.USERS.add(u);
+    User actual = service.assignDriver();
+    assertTrue(expected.equals(actual));
+  }
+
+  /**
+   * assignDriverNoneExist
+   *
+   * Ensure that the system can handle an
+   * attempt to assign a driver when no drivers
+   * exist in the system
+   */
+  @Test
+  public void assignDriverNoneExist() {
+    User actual = service.assignDriver();
+    assertNull(actual);
   }
 
 }

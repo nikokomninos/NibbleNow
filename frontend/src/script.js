@@ -48,8 +48,6 @@ const register = async () => {
   let password = document.getElementById("password").value;
   let role = document.getElementById("roles").value;
 
-  console.log(role);
-
   if (username === "") username = "Empty";
   if (password === "") password = "Empty";
   if (role === "Default") role = "Empty";
@@ -88,26 +86,34 @@ const logout = () => {
 };
 
 const setRestaurantButtonRole = () => {
-  if (localStorage.getItem("role") == "Customer") {
+  if (localStorage.getItem("role") === "Customer") {
     document
       .getElementById("restaurantButton")
       .setAttribute("href", "./restaurant1_customer.html");
   }
-  if (localStorage.getItem("role") == "Restaurant Owner") {
+  if (localStorage.getItem("role") === "Restaurant Owner") {
     document
       .getElementById("restaurantButton")
       .setAttribute("href", "./restaurant1_owner.html");
   }
+
+  if (localStorage.getItem("role") === "Delivery Driver") {
+    document.getElementById("restaurantButton").setAttribute("class", "hidden");
+  }
 };
 
 const setOrdersButtonRole = () => {
-  if (localStorage.getItem("role") == "Customer") {
+  if (localStorage.getItem("role") === "Customer") {
     document
       .getElementById("ordersButton")
       .setAttribute("href", "./customer_orders.html");
   }
 
-  if (localStorage.getItem("role") == "Driver") {
+  if (localStorage.getItem("role") === "Restaurant Owner") {
+    document.getElementById("ordersButton").setAttribute("class", "hidden");
+  }
+
+  if (localStorage.getItem("role") === "Delivery Driver") {
     document
       .getElementById("ordersButton")
       .setAttribute("href", "./driver_orders.html");
@@ -131,7 +137,6 @@ const buildMenuOwner = async (restaurant) => {
     body: restaurant,
   });
   const data = await res.json();
-  console.log(data);
   // Builds DOM elements for each item on the menu
   data.menu.forEach((item) => {
     const name = document.createElement("h1");
@@ -190,12 +195,8 @@ const addMenuItem = async () => {
   let name = document.getElementById("itemName").value;
   let description = document.getElementById("itemDescription").value;
 
-  console.log(description);
-
   if (name === "") name = "Empty";
   if (description === "") description = "Empty";
-
-  console.log(description);
 
   const res = await fetch("http://localhost:8000/api/addItem", {
     method: "POST",
@@ -505,8 +506,124 @@ const getOrders = async (restaurant) => {
     orderDiv.appendChild(itemsHeader);
 
     const itemsList = document.createElement("p");
-    itemsList.className = "text-xs";
+    itemsList.className = "text-xs mb-2";
+    itemsList.textContent = order.items.join(", ");
+    orderDiv.appendChild(itemsList);
+
+    const driver = document.createElement("p");
+    driver.className = "text-sm mb-2";
+    driver.textContent = "Driver: " + order.driver;
+    orderDiv.appendChild(driver);
+  });
+};
+
+/**
+ * getCustomerOrders
+ *
+ * Gets all orders for a specific customer
+ * @param {String} restaurant
+ */
+const getCustomerOrders = async (restaurant) => {
+  const container = document.querySelector("#ordersContainer");
+  const res = await fetch("http://localhost:8000/api/getCustomerOrders", {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "text/plain" },
+    body: restaurant + "," + localStorage.getItem("username"),
+  });
+  const data = await res.json();
+
+  data.orders.forEach((order) => {
+    const orderDiv = document.createElement("div");
+    orderDiv.className =
+      "flex flex-col p-5 ml-10 mr-10 w-[300px] border-2 rounded-3xl bg-[#F6F6FF] drop-shadow-lg hover:bg-gray-200 ease-linear duration-100";
+    container.appendChild(orderDiv);
+
+    const username = document.createElement("h1");
+    username.className = "text-2xl font-semibold mb-3";
+    username.textContent = order.username;
+    orderDiv.appendChild(username);
+
+    const itemsHeader = document.createElement("h2");
+    itemsHeader.className = "text-lg mb-3";
+    itemsHeader.textContent = "Items:";
+    orderDiv.appendChild(itemsHeader);
+
+    const itemsList = document.createElement("p");
+    itemsList.className = "text-xs mb-2";
+    itemsList.textContent = order.items.join(", ");
+    orderDiv.appendChild(itemsList);
+
+    const driver = document.createElement("p");
+    driver.className = "text-sm mb-2";
+    driver.textContent = "Driver: " + order.driver;
+    orderDiv.appendChild(driver);
+
+    const cancelButton = document.createElement("button");
+    cancelButton.className =
+      "mr-5 border-2 rounded-xl bg-white p-2 hover:bg-neutral-100 ease-linear duration-100";
+    cancelButton.innerText = "Cancel Order";
+    cancelButton.onclick = () => cancelOrder(restaurant, order);
+    orderDiv.appendChild(cancelButton);
+  });
+};
+
+/**
+ * getDriverOrders
+ *
+ * Get all orders associated with a specific driver
+ */
+const getDriverOrders = async () => {
+  const container = document.querySelector("#ordersContainer");
+  const res = await fetch("http://localhost:8000/api/getDriverOrders", {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "text/plain" },
+    body: localStorage.getItem("username"),
+  });
+  const data = await res.json();
+
+  data.orders.forEach((order) => {
+    const orderDiv = document.createElement("div");
+    orderDiv.className =
+      "flex flex-col p-5 ml-10 mr-10 w-[300px] border-2 rounded-3xl bg-[#F6F6FF] drop-shadow-lg hover:bg-gray-200 ease-linear duration-100";
+    container.appendChild(orderDiv);
+
+    const username = document.createElement("h1");
+    username.className = "text-2xl font-semibold mb-3";
+    username.textContent = order.username;
+    orderDiv.appendChild(username);
+
+    const itemsHeader = document.createElement("h2");
+    itemsHeader.className = "text-lg mb-3";
+    itemsHeader.textContent = "Items:";
+    orderDiv.appendChild(itemsHeader);
+
+    const itemsList = document.createElement("p");
+    itemsList.className = "text-xs mb-2";
     itemsList.textContent = order.items.join(", ");
     orderDiv.appendChild(itemsList);
   });
+};
+
+/**
+ * cancelOrder
+ *
+ * Cancels a customer's order
+ */
+const cancelOrder = async (restaurant, order) => {
+  const orderText = order.items.join("&");
+  const res = await fetch("http://localhost:8000/api/cancelOrder", {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "text/plain" },
+    body: restaurant + "," + localStorage.getItem("username") + "," + orderText,
+  });
+  const data = await res.text();
+  if (data === "Order cancelled successfully") {
+    alert("Order cancelled successfully");
+    window.location.reload();
+  } else {
+    alert("Order could not be cancelled");
+  }
 };

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import com.nibblenow.app.Database;
 import com.nibblenow.app.MenuItem;
 import com.nibblenow.app.Order;
+import com.nibblenow.app.User;
 
 /**
  * GetOrdersHandler:
@@ -29,31 +30,31 @@ public class GetOrdersHandler implements HttpHandler {
 
     // Build array of JSON objects, where the objects represent orders
     String response = "{ \"orders\": [";
-    for(int i = 0; i < orders.size(); i++) {
+    for (int i = 0; i < orders.size(); i++) {
+      Order order = orders.get(i);
+
+      // Get driver assigned to this order
+      User driver = Database.DRIVER_ORDERS.get(order);
+      String driverName = (driver != null) ? driver.getUsername() : "Unassigned";
+
+      response += "{ \"username\": \"" + order.getUsername() + "\", ";
+      response += "\"driver\": \"" + driverName + "\", ";
+      response += "\"items\": [";
+
+      for (int j = 0; j < order.getOrder().size(); j++) {
+        response += "\"" + order.getOrder().get(j).getName() + "\"";
+        if (j != order.getOrder().size() - 1) {
+          response += ",";
+        }
+      }
+
+      response += "] }";
+
       if (i != orders.size() - 1) {
-        response += "{ \"username\": \"" + orders.get(i).getUsername() + "\", \"items\": [";
-        for (int j = 0; j < orders.get(i).getOrder().size(); j++) {
-          if (j != orders.get(i).getOrder().size() - 1) {
-            response += "\"" + orders.get(i).getOrder().get(j).getName() + "\","; 
-          } else {
-            response += "\"" + orders.get(i).getOrder().get(j).getName() + "\""; 
-          }
-        }
-        response += "] },";
-      } else {
-        response += "{ \"username\": \"" + orders.get(i).getUsername() + "\", \"items\": [";
-        for (int j = 0; j < orders.get(i).getOrder().size(); j++) {
-          if (j != orders.get(i).getOrder().size() - 1) {
-            response += "\"" + orders.get(i).getOrder().get(j).getName() + "\","; 
-          } else {
-            response += "\"" + orders.get(i).getOrder().get(j).getName() + "\""; 
-          }
-        }
-        response += "] }";
+        response += ",";
       }
     }
     response += "] }";
-    System.out.println(response);
 
     exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
     exchange.getResponseHeaders().add("Content-Type", "application/json");

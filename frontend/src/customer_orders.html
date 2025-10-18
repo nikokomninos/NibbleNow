@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Orders - NibbleNow</title>
+    <link href="tailwind/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js"></script>
+  </head>
+
+  <body onload="getCustomerOrders('500 Degrees')" class="font-notosans bg-[#FDFDFF] text-[#352F36]">
+    <div class="h-screen flex flex-col justify-center items-center">
+      <div>
+        <div class="flex flex-row justify-center">
+          <a
+            href="dashboard.html"
+            class="flex justify-center items-center p-5 mb-10 font-semibold w-[200px] bg-[#F6F6FF] border-2 rounded-3xl drop-shadow-lg hover:bg-gray-200 ease-linear duration-100"
+          >
+            Back
+          </a>
+        </div>
+        <div class="text-center">
+          <h1 class="text-4xl font-bold mb-20">My Orders</h1>
+        </div>
+        <div id="ordersContainer" class="flex flex-row" />
+      </div>
+    </div>
+  </body>
+</html>

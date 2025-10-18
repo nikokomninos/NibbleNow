@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Jupiter" tests="67" skipped="0" failures="0" errors="0" time="0.417" hostname="Nikos-MacBook-Air.local" timestamp="2025-10-18T16:06:38">
+<properties>
+<property name="apple.awt.application.name" value="ConsoleLauncher"/>
+<property name="file.encoding" value="UTF-8"/>
+<property name="file.separator" value="/"/>
+<property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+<property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+<property name="java.class.path" value="/Users/nk/.local/share/nvim/neotest-java/junit-platform-console-standalone-1.10.1.jar"/>
+<property name="java.class.version" value="69.0"/>
+<property name="java.home" value="/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home"/>
+<property name="java.io.tmpdir" value="/var/folders/lg/dph1wt616pz21xb0cv_81w180000gn/T/"/>
+<property name="java.library.path" value="/Users/nk/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+<property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+<property name="java.runtime.version" value="25"/>
+<property name="java.specification.name" value="Java Platform API Specification"/>
+<property name="java.specification.vendor" value="Oracle Corporation"/>
+<property name="java.specification.version" value="25"/>
+<property name="java.vendor" value="Homebrew"/>
+<property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+<property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+<property name="java.vendor.version" value="Homebrew"/>
+<property name="java.version" value="25"/>
+<property name="java.version.date" value="2025-09-16"/>
+<property name="java.vm.compressedOopsMode" value="Zero based"/>
+<property name="java.vm.info" value="mixed mode, sharing"/>
+<property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+<property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<property name="java.vm.specification.version" value="25"/>
+<property name="java.vm.vendor" value="Homebrew"/>
+<property name="java.vm.version" value="25"/>
+<property name="jdk.debug" value="release"/>
+<property name="line.separator" value="
+"/>
+<property name="native.encoding" value="UTF-8"/>
+<property name="os.arch" value="aarch64"/>
+<property name="os.name" value="Mac OS X"/>
+<property name="os.version" value="15.6.1"/>
+<property name="path.separator" value=":"/>
+<property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+<property name="spring.config.additional-location" value="optional:file:/Users/nk/Documents/repos/NibbleNow/backend/target/classes/classes/application.yml,optional:file:/Users/nk/Documents/repos/NibbleNow/backend/target/classes/classes/application.yaml,optional:file:/Users/nk/Documents/repos/NibbleNow/backend/target/classes/classes/application.properties,optional:file:/Users/nk/Documents/repos/NibbleNow/backend/target/classes/classes/application-test.yml,optional:file:/Users/nk/Documents/repos/NibbleNow/backend/target/classes/classes/application-test.yaml,optional:file:/Users/nk/Documents/repos/NibbleNow/backend/target/classes/classes/application-test.properties,optional:file:/Users/nk/Documents/repos/NibbleNow/backend/target/classes/test-classes/application.yml,optional:file:/Users/nk/Documents/repos/NibbleNow/backend/target/classes/test-classes/application.yaml,optional:file:/Users/nk/Documents/repos/NibbleNow/backend/target/classes/test-classes/application.properties,optional:file:/Users/nk/Documents/repos/NibbleNow/backend/target/classes/test-classes/application-test.yml,optional:file:/Users/nk/Documents/repos/NibbleNow/backend/target/classes/test-classes/application-test.yaml,optional:file:/Users/nk/Documents/repos/NibbleNow/backend/target/classes/test-classes/application-test.properties"/>
+<property name="stderr.encoding" value="UTF-8"/>
+<property name="stdin.encoding" value="UTF-8"/>
+<property name="stdout.encoding" value="UTF-8"/>
+<property name="sun.arch.data.model" value="64"/>
+<property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home/lib"/>
+<property name="sun.cpu.endian" value="little"/>
+<property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+<property name="sun.java.command" value="/Users/nk/.local/share/nvim/neotest-java/junit-platform-console-standalone-1.10.1.jar execute @./target/classes/.cp --reports-dir=./target/classes/junit-reports/181025160637 --fail-if-no-tests --disable-banner --details=testfeed --config=junit.platform.output.capture.stdout=true --select-method=com.nibblenow.app.CartUpdateServiceTest#customerAddItemToValidEmptyCart --select-method=com.nibblenow.app.CartUpdateServiceTest#customerAddItemToOrderValidNotEmptyCart --select-method=com.nibblenow.app.CartUpdateServiceTest#customerAddItemToOrderValidMaxItems --select-method=com.nibblenow.app.CartUpdateServiceTest#customerAddItemToOrderInvalidMoreThanMax --select-method=com.nibblenow.app.CartUpdateServiceTest#testCustomerRemoveItemFromOrderValidOneItem --select-method=com.nibblenow.app.CartUpdateServiceTest#testCustomerRemoveItemFromOrderValidMultipleItems --select-method=com.nibblenow.app.CartUpdateServiceTest#testCustomerRemoveItemFromOrderInvalidNoItems --select-method=com.nibblenow.app.CartUpdateServiceTest#submitOrderTestStub --select-method=com.nibblenow.app.CartUpdateServiceTest#submitOrderOneValidItem --select-method=com.nibblenow.app.CartUpdateServiceTest#submitOrderMultipleValidItem --select-method=com.nibblenow.app.CartUpdateServiceTest#submitOrderEmptyCart --select-method=com.nibblenow.app.CartUpdateServiceTest#assignDriverValid --select-method=com.nibblenow.app.CartUpdateServiceTest#assignDriverNoneExist --select-method=com.nibblenow.app.LoginServiceTest#userExistsValidPassword --select-method=com.nibblenow.app.LoginServiceTest#userExistsInvalidPassword --select-method=com.nibblenow.app.LoginServiceTest#invalidUser --select-method=com.nibblenow.app.LoginServiceTest#userExistsNoUsername --select-method=com.nibblenow.app.LoginServiceTest#userExistsNoPassword --select-method=com.nibblenow.app.MenuUpdateServiceTest#addItemTestStub --select-method=com.nibblenow.app.MenuUpdateServiceTest#addItemValid --select-method=com.nibblenow.app.MenuUpdateServiceTest#addItemNameMinLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#addItemNameMaxLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#addItemNameEmpty --select-method=com.nibblenow.app.MenuUpdateServiceTest#addItemNameBelowMinLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#addItemNameAboveMaxLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#addItemDescriptionMinLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#addItemDescriptionMaxLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#addItemDescriptionAboveMaxLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#remoteItemTestStub --select-method=com.nibblenow.app.MenuUpdateServiceTest#removeItemValid --select-method=com.nibblenow.app.MenuUpdateServiceTest#removeItemNotExist --select-method=com.nibblenow.app.MenuUpdateServiceTest#removeItemEmptyName --select-method=com.nibblenow.app.MenuUpdateServiceTest#editItemTestStub --select-method=com.nibblenow.app.MenuUpdateServiceTest#editItemValid --select-method=com.nibblenow.app.MenuUpdateServiceTest#editItemNameMinLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#editItemNameMaxLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#editItemNameEmpty --select-method=com.nibblenow.app.MenuUpdateServiceTest#editItemNameBelowMinLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#editItemNameAboveMaxLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#editItemDescriptionMinLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#editItemDescriptionMaxLength --select-method=com.nibblenow.app.MenuUpdateServiceTest#editItemDescriptionAboveMaxLength --select-method=com.nibblenow.app.OrderUpdateServiceTest#removeOrderValid --select-method=com.nibblenow.app.RegisterServiceTest#testCheckLength --select-method=com.nibblenow.app.RegisterServiceTest#testCheckSpecialChar --select-method=com.nibblenow.app.RegisterServiceTest#testCheckUpperCase --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountValidMinUsername --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountValidMaxUsername --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidMinUsername --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidMaxUsername --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidContainsSpaceUsername --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidContainsSpecialUsername --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidNotUniqueUsername --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidNotUniqueRoleUsername --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidNoUsernameUsername --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountValidPasswordMin --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountValidPasswordMax --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountValidPasswordUpper --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidMinPassword --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidMaxPassword --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidNoUppercasePassword --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidContainsSpacePassword --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidContainsSpecialPassword --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidEmptyPasswordPassword --select-method=com.nibblenow.app.RegisterServiceTest#testUserCreateAccountInvalidSelectRole --select-method=com.nibblenow.app.TestGetServiceTest#testMethod --select-method=com.nibblenow.app.TestPostServiceTest#testMethod"/>
+<property name="sun.java.launcher" value="SUN_STANDARD"/>
+<property name="sun.jnu.encoding" value="UTF-8"/>
+<property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+<property name="user.country" value="US"/>
+<property name="user.dir" value="/Users/nk/Documents/repos/NibbleNow"/>
+<property name="user.home" value="/Users/nk"/>
+<property name="user.language" value="en"/>
+<property name="user.name" value="nk"/>
+<property name="user.timezone" value="America/New_York"/>
+</properties>
+<testcase name="testUserCreateAccountInvalidMaxUsername()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidMaxUsername()]
+display-name: testUserCreateAccountInvalidMaxUsername()
+]]></system-out>
+</testcase>
+<testcase name="editItemNameAboveMaxLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:editItemNameAboveMaxLength()]
+display-name: editItemNameAboveMaxLength()
+]]></system-out>
+</testcase>
+<testcase name="addItemDescriptionMinLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:addItemDescriptionMinLength()]
+display-name: addItemDescriptionMinLength()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidContainsSpaceUsername()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidContainsSpaceUsername()]
+display-name: testUserCreateAccountInvalidContainsSpaceUsername()
+]]></system-out>
+</testcase>
+<testcase name="customerAddItemToValidEmptyCart()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0.366">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:customerAddItemToValidEmptyCart()]
+display-name: customerAddItemToValidEmptyCart()
+]]></system-out>
+</testcase>
+<testcase name="testCheckSpecialChar()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testCheckSpecialChar()]
+display-name: testCheckSpecialChar()
+]]></system-out>
+</testcase>
+<testcase name="addItemNameMinLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:addItemNameMinLength()]
+display-name: addItemNameMinLength()
+]]></system-out>
+</testcase>
+<testcase name="userExistsNoUsername()" classname="com.nibblenow.app.LoginServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.LoginServiceTest]/[method:userExistsNoUsername()]
+display-name: userExistsNoUsername()
+]]></system-out>
+</testcase>
+<testcase name="customerAddItemToOrderValidNotEmptyCart()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:customerAddItemToOrderValidNotEmptyCart()]
+display-name: customerAddItemToOrderValidNotEmptyCart()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidNotUniqueRoleUsername()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidNotUniqueRoleUsername()]
+display-name: testUserCreateAccountInvalidNotUniqueRoleUsername()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountValidMaxUsername()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountValidMaxUsername()]
+display-name: testUserCreateAccountValidMaxUsername()
+]]></system-out>
+</testcase>
+<testcase name="customerAddItemToOrderValidMaxItems()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:customerAddItemToOrderValidMaxItems()]
+display-name: customerAddItemToOrderValidMaxItems()
+]]></system-out>
+</testcase>
+<testcase name="editItemDescriptionMaxLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:editItemDescriptionMaxLength()]
+display-name: editItemDescriptionMaxLength()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidNoUsernameUsername()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidNoUsernameUsername()]
+display-name: testUserCreateAccountInvalidNoUsernameUsername()
+]]></system-out>
+</testcase>
+<testcase name="remoteItemTestStub()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:remoteItemTestStub()]
+display-name: remoteItemTestStub()
+]]></system-out>
+</testcase>
+<testcase name="addItemTestStub()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:addItemTestStub()]
+display-name: addItemTestStub()
+]]></system-out>
+</testcase>
+<testcase name="customerAddItemToOrderInvalidMoreThanMax()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:customerAddItemToOrderInvalidMoreThanMax()]
+display-name: customerAddItemToOrderInvalidMoreThanMax()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountValidPasswordUpper()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountValidPasswordUpper()]
+display-name: testUserCreateAccountValidPasswordUpper()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidContainsSpecialPassword()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidContainsSpecialPassword()]
+display-name: testUserCreateAccountInvalidContainsSpecialPassword()
+]]></system-out>
+</testcase>
+<testcase name="addItemDescriptionMaxLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:addItemDescriptionMaxLength()]
+display-name: addItemDescriptionMaxLength()
+]]></system-out>
+</testcase>
+<testcase name="editItemDescriptionMinLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:editItemDescriptionMinLength()]
+display-name: editItemDescriptionMinLength()
+]]></system-out>
+</testcase>
+<testcase name="testCustomerRemoveItemFromOrderValidOneItem()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:testCustomerRemoveItemFromOrderValidOneItem()]
+display-name: testCustomerRemoveItemFromOrderValidOneItem()
+]]></system-out>
+</testcase>
+<testcase name="removeItemNotExist()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:removeItemNotExist()]
+display-name: removeItemNotExist()
+]]></system-out>
+</testcase>
+<testcase name="editItemValid()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:editItemValid()]
+display-name: editItemValid()
+]]></system-out>
+</testcase>
+<testcase name="editItemNameMaxLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:editItemNameMaxLength()]
+display-name: editItemNameMaxLength()
+]]></system-out>
+</testcase>
+<testcase name="addItemNameMaxLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:addItemNameMaxLength()]
+display-name: addItemNameMaxLength()
+]]></system-out>
+</testcase>
+<testcase name="testCustomerRemoveItemFromOrderInvalidNoItems()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:testCustomerRemoveItemFromOrderInvalidNoItems()]
+display-name: testCustomerRemoveItemFromOrderInvalidNoItems()
+]]></system-out>
+</testcase>
+<testcase name="editItemNameEmpty()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:editItemNameEmpty()]
+display-name: editItemNameEmpty()
+]]></system-out>
+</testcase>
+<testcase name="userExistsInvalidPassword()" classname="com.nibblenow.app.LoginServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.LoginServiceTest]/[method:userExistsInvalidPassword()]
+display-name: userExistsInvalidPassword()
+]]></system-out>
+</testcase>
+<testcase name="removeOrderValid()" classname="com.nibblenow.app.OrderUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.OrderUpdateServiceTest]/[method:removeOrderValid()]
+display-name: removeOrderValid()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountValidMinUsername()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountValidMinUsername()]
+display-name: testUserCreateAccountValidMinUsername()
+]]></system-out>
+</testcase>
+<testcase name="addItemNameAboveMaxLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:addItemNameAboveMaxLength()]
+display-name: addItemNameAboveMaxLength()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidMinPassword()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidMinPassword()]
+display-name: testUserCreateAccountInvalidMinPassword()
+]]></system-out>
+</testcase>
+<testcase name="testCheckUpperCase()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testCheckUpperCase()]
+display-name: testCheckUpperCase()
+]]></system-out>
+</testcase>
+<testcase name="testCustomerRemoveItemFromOrderValidMultipleItems()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:testCustomerRemoveItemFromOrderValidMultipleItems()]
+display-name: testCustomerRemoveItemFromOrderValidMultipleItems()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountValidPasswordMax()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountValidPasswordMax()]
+display-name: testUserCreateAccountValidPasswordMax()
+]]></system-out>
+</testcase>
+<testcase name="editItemNameMinLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:editItemNameMinLength()]
+display-name: editItemNameMinLength()
+]]></system-out>
+</testcase>
+<testcase name="submitOrderOneValidItem()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:submitOrderOneValidItem()]
+display-name: submitOrderOneValidItem()
+]]></system-out>
+</testcase>
+<testcase name="editItemDescriptionAboveMaxLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:editItemDescriptionAboveMaxLength()]
+display-name: editItemDescriptionAboveMaxLength()
+]]></system-out>
+</testcase>
+<testcase name="editItemNameBelowMinLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:editItemNameBelowMinLength()]
+display-name: editItemNameBelowMinLength()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidMinUsername()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidMinUsername()]
+display-name: testUserCreateAccountInvalidMinUsername()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountValidPasswordMin()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountValidPasswordMin()]
+display-name: testUserCreateAccountValidPasswordMin()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidNotUniqueUsername()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidNotUniqueUsername()]
+display-name: testUserCreateAccountInvalidNotUniqueUsername()
+]]></system-out>
+</testcase>
+<testcase name="removeItemValid()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:removeItemValid()]
+display-name: removeItemValid()
+]]></system-out>
+</testcase>
+<testcase name="assignDriverValid()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:assignDriverValid()]
+display-name: assignDriverValid()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidContainsSpecialUsername()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidContainsSpecialUsername()]
+display-name: testUserCreateAccountInvalidContainsSpecialUsername()
+]]></system-out>
+</testcase>
+<testcase name="testMethod()" classname="com.nibblenow.app.TestPostServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.TestPostServiceTest]/[method:testMethod()]
+display-name: testMethod()
+]]></system-out>
+</testcase>
+<testcase name="submitOrderMultipleValidItem()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:submitOrderMultipleValidItem()]
+display-name: submitOrderMultipleValidItem()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidContainsSpacePassword()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidContainsSpacePassword()]
+display-name: testUserCreateAccountInvalidContainsSpacePassword()
+]]></system-out>
+</testcase>
+<testcase name="userExistsNoPassword()" classname="com.nibblenow.app.LoginServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.LoginServiceTest]/[method:userExistsNoPassword()]
+display-name: userExistsNoPassword()
+]]></system-out>
+</testcase>
+<testcase name="testMethod()" classname="com.nibblenow.app.TestGetServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.TestGetServiceTest]/[method:testMethod()]
+display-name: testMethod()
+]]></system-out>
+</testcase>
+<testcase name="testCheckLength()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testCheckLength()]
+display-name: testCheckLength()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidSelectRole()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidSelectRole()]
+display-name: testUserCreateAccountInvalidSelectRole()
+]]></system-out>
+</testcase>
+<testcase name="userExistsValidPassword()" classname="com.nibblenow.app.LoginServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.LoginServiceTest]/[method:userExistsValidPassword()]
+display-name: userExistsValidPassword()
+]]></system-out>
+</testcase>
+<testcase name="submitOrderEmptyCart()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:submitOrderEmptyCart()]
+display-name: submitOrderEmptyCart()
+]]></system-out>
+</testcase>
+<testcase name="addItemNameEmpty()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:addItemNameEmpty()]
+display-name: addItemNameEmpty()
+]]></system-out>
+</testcase>
+<testcase name="removeItemEmptyName()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:removeItemEmptyName()]
+display-name: removeItemEmptyName()
+]]></system-out>
+</testcase>
+<testcase name="addItemValid()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:addItemValid()]
+display-name: addItemValid()
+]]></system-out>
+</testcase>
+<testcase name="invalidUser()" classname="com.nibblenow.app.LoginServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.LoginServiceTest]/[method:invalidUser()]
+display-name: invalidUser()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidMaxPassword()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidMaxPassword()]
+display-name: testUserCreateAccountInvalidMaxPassword()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidEmptyPasswordPassword()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidEmptyPasswordPassword()]
+display-name: testUserCreateAccountInvalidEmptyPasswordPassword()
+]]></system-out>
+</testcase>
+<testcase name="submitOrderTestStub()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:submitOrderTestStub()]
+display-name: submitOrderTestStub()
+]]></system-out>
+</testcase>
+<testcase name="addItemNameBelowMinLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:addItemNameBelowMinLength()]
+display-name: addItemNameBelowMinLength()
+]]></system-out>
+</testcase>
+<testcase name="testUserCreateAccountInvalidNoUppercasePassword()" classname="com.nibblenow.app.RegisterServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.RegisterServiceTest]/[method:testUserCreateAccountInvalidNoUppercasePassword()]
+display-name: testUserCreateAccountInvalidNoUppercasePassword()
+]]></system-out>
+</testcase>
+<testcase name="editItemTestStub()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:editItemTestStub()]
+display-name: editItemTestStub()
+]]></system-out>
+</testcase>
+<testcase name="addItemDescriptionAboveMaxLength()" classname="com.nibblenow.app.MenuUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.MenuUpdateServiceTest]/[method:addItemDescriptionAboveMaxLength()]
+display-name: addItemDescriptionAboveMaxLength()
+]]></system-out>
+</testcase>
+<testcase name="assignDriverNoneExist()" classname="com.nibblenow.app.CartUpdateServiceTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:com.nibblenow.app.CartUpdateServiceTest]/[method:assignDriverNoneExist()]
+display-name: assignDriverNoneExist()
+]]></system-out>
+</testcase>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]
+display-name: JUnit Jupiter
+]]></system-out>
+</testsuite>

@@ -1,9 +1,12 @@
 package com.nibblenow.app;
 
+import com.nibblenow.app.handlers.CancelOrderHandler;
 import com.nibblenow.app.handlers.CartAddItemHandler;
 import com.nibblenow.app.handlers.CartRemoveItemHandler;
 import com.nibblenow.app.handlers.CartSubmitOrderHandler;
 import com.nibblenow.app.handlers.GetCartHandler;
+import com.nibblenow.app.handlers.GetCustomerOrdersHandler;
+import com.nibblenow.app.handlers.GetDriverOrdersHandler;
 import com.nibblenow.app.handlers.GetMenuHandler;
 import com.nibblenow.app.handlers.GetOrdersHandler;
 import com.nibblenow.app.handlers.LoginHandler;
@@ -53,6 +56,9 @@ public class App {
             server.createContext("/api/getCart", new GetCartHandler());
             server.createContext("/api/submitOrder", new CartSubmitOrderHandler());
             server.createContext("/api/getOrders", new GetOrdersHandler());
+            server.createContext("/api/getCustomerOrders", new GetCustomerOrdersHandler());
+            server.createContext("/api/getDriverOrders", new GetDriverOrdersHandler());
+            server.createContext("/api/cancelOrder", new CancelOrderHandler());
 
             server.setExecutor(null);
             server.start();
@@ -82,9 +88,10 @@ public class App {
      */
     public static void populateUserDatabase()
     {
-        Database.USERS.add(new User("testUser", "testPassword", "Customer", new Cart()));
-        Database.USERS.add(new User("testOwner", "testPassword", "Restaurant Owner", new Cart()));
-        
+        Database.USERS.add(new User("testUser", "testPass", "Customer", new Cart()));
+        Database.USERS.add(new User("testOwner", "testPass", "Restaurant Owner", new Cart()));
+        Database.USERS.add(new User("testDriver", "testPass", "Delivery Driver", new Cart()));
+
         Database.USERS.add(new User("jakeThompson22", "FastFoodLover1", "Customer", new Cart()));
         Database.USERS.add(new User("mariaLopez", "StrongPass2", "Restaurant Owner", new Cart()));
         Database.USERS.add(new User("driverDylan99", "DriveSafe7", "Delivery Driver", new Cart()));

@@ -1,9 +1,13 @@
-
 package com.nibblenow.app.services;
 
 import com.nibblenow.app.MenuItem;
 import com.nibblenow.app.Order;
 import com.nibblenow.app.User;
+
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Random;
+
 import com.nibblenow.app.Cart;
 import com.nibblenow.app.Database;
 
@@ -86,10 +90,32 @@ public class CartUpdateService
   public Order submitOrder(User user) {
     if (user.getCart().isEmpty()) return null;
     else {
-      Database.ORDERS.get("500 Degrees").add(new Order(user.getUsername(), user.getCart().getContents()));
       Order o = new Order(user.getUsername(), user.getCart().getContents());
+      Database.ORDERS.get("500 Degrees").add(o);
+
       user.setCart(new Cart());
+      User driver = assignDriver();
+      Database.DRIVER_ORDERS.put(o, driver);
+
       return o;
     }
+  }
+
+  /**
+   * assignDriver
+   *
+   * Assigns a driver to a submitted order
+   * (randomly chosen, for simulation purposes)
+   */
+  public User assignDriver() {
+    List<User> drivers = Database.USERS.stream()
+      .filter(user -> user.getRole().equals("Delivery Driver"))
+      .collect(Collectors.toList());
+
+    if (drivers.isEmpty()) return null;
+
+    Random rand = new Random();
+    int selectedDriver = rand.nextInt(drivers.size());
+    return drivers.get(selectedDriver);
   }
 }
