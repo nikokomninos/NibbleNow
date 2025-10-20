@@ -6,9 +6,7 @@ import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import com.nibblenow.app.Database;
 import com.nibblenow.app.MenuItem;

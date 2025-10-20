@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.nibblenow.app"},{"l":"com.nibblenow.app.handlers"},{"l":"com.nibblenow.app.services"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"com.nibblenow.app"},{"l":"com.nibblenow.app.handlers"},{"l":"com.nibblenow.app.services"}];updateSearchResults();
