@@ -11,7 +11,7 @@ Christopher Sciortino
 ###### Option 1: Download the latest release
 
 1. Download the latest release from the Releases tab
-2. `cd` to the where the JAR is downloaded, and run the JAR with `java -cp nibblenow-1.0-SNAPSHOT.jar com.nibblenow.app.App`
+2. `cd` into `backend`, and run the JAR with `java -cp nibblenow-1.0-SNAPSHOT.jar com.nibblenow.app.App`
 
 ###### Option 2: Build the JAR with Maven
 
@@ -25,12 +25,12 @@ Christopher Sciortino
 ###### Option 1: Download the latest release
 
 1. Download the release from the Releases tab
-2. Open `login.html` with liver server in VSCode or any other method that serves HTML files
+2. Open `login.html` with live server in VSCode or any other method that serves HTML files
 
 ###### Option 2: Clone the Repository
 
 1. Clone the repository
-2. Open the `frontend` folder and open `login.html` with liver server in VSCode or any other method that serves HTML files
+2. Open the `frontend` folder and open `login.html` with live server in VSCode or any other method that serves HTML files
 
 ### Documentation
 
