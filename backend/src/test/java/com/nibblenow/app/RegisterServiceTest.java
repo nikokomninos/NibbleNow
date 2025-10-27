@@ -287,5 +287,50 @@ class RegisterServiceTest {
     assertEquals(null,response); 
   }
 
+
+  /*
+   * Here we are testing using MC/DC condition 4:
+   * Username is NOT less than 25, Username is greater than 5 characters, username has special characters.
+   */
+  @Test
+  public void testCreateAccountMCDCCaseFour()
+  {
+    User response = service.register("abcdefghijklmnopqrstuvwxyz!", "JohnPassword", "");
+    assertEquals(null,response); 
+  }
+
+  /*
+   * Here we are testing using MC/DC condition 6:
+   * Username is less than 25, Username is NOT greater than 5 characters, username has special characters.
+   */
+  @Test
+  public void testCreateAccountMCDCCaseSix()
+  {
+    User response = service.register("joh!", "JohnPassword", "");
+    assertEquals(null,response); 
+  }
+
+  /*
+   * Here we are testing using MC/DC condition 7:
+   * Username is less than 25, Username is greater than 5 characters, username does NOT have special characters.
+   */
+  @Test
+  public void testCreateAccountMCDCCaseSeven()
+  {
+    User response = service.register("johnny", "JohnPassword", "");
+    assertEquals(null,response); 
+  }
+
+  /*
+   * Here we are testing using MC/DC condition 8:
+   * Username is less than 25, Username is greater than 5 characters, username does have special characters.
+   */
+  @Test
+  public void testCreateAccountMCDCCaseEight()
+  {
+    User response = service.register("johnny!", "JohnPassword", "");
+    assertEquals(null,response); 
+  }
+
  
 }
